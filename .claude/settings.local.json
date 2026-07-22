@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(which python *)",
+      "Read(//c/Program Files/**)",
+      "PowerShell(Get-Command node, python -ErrorAction SilentlyContinue)",
+      "Bash(python -c ' *)",
+      "Bash(python -m pip install --quiet Pillow)",
+      "Bash(rm -f hero-after-preview.png shot-editar-preview.png render-a-preview.png Lumo.raw.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost/lumo/index.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost/lumo/css/style.css)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost/lumo/js/main.js)",
+      "Bash(powershell -Command 'Get-Service | Where-Object {$_.Name -like '\\\\''*apache*'\\\\''} | Format-Table -AutoSize')",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://localhost/lumo/index.html\" -UseBasicParsing -TimeoutSec 5; \"$\\($r.StatusCode\\) $\\($r.RawContentLength\\) bytes\" } catch { \"ERROR: $\\($_.Exception.Message\\)\" })",
+      "Bash(python -c \"import playwright; print\\('has playwright'\\)\")",
+      "Bash(python -m pip install --quiet playwright)",
+      "Bash(python -m playwright install chromium)",
+      "Bash(cd \"C:/Apache24/htdocs/lumo\" && rm -f shot-hero.png shot-mid.png shot-precos.png shot-footer.png shot-precos2.png shot-faq.png && ls -la)",
+      "Bash(find \"C:/Users/Connect/AppData/Local/Temp/claude\" -type f \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" \\\\\\) -newermt \"2026-07-22 14:50\" 2>/dev/null | head -40; echo \"---scratchpad---\"; ls -la \"C:/Users/Connect/AppData/Local/Temp/claude/c--Apache24-htdocs-lumo/2fa9f265-eed2-4f45-9e9d-74c3d14c44ee/scratchpad\" 2>/dev/null)",
+      "Read(//c/Users/Connect/AppData/Local/Temp/claude/**)",
+      "Bash(find \"C:/Users/Connect/AppData/Local/Temp\" -maxdepth 3 -type f \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" -o -iname \"*.webp\" \\\\\\) -newermt \"2026-07-22 15:00\" 2>/dev/null | head -40)",
+      "Read(//c/Users/Connect/AppData/Local/Temp/**)",
+      "Bash(find \"C:/Users/Connect/AppData/Local/Temp\" \"C:/Users/Connect/AppData/Roaming/Code\" \"C:/Apache24/htdocs/lumo/.claude\" -type f \\\\\\( -iname \"*.png\" -o -iname \"*.jpeg\" -o -iname \"*.jpg\" \\\\\\) -newermt \"2026-07-22 15:30\" 2>/dev/null | head; echo \"exit search done\")",
+      "Read(//c/Users/Connect/AppData/Roaming/Code/**)",
+      "Bash(grep -iE \"\\\\.\\(png|jpg|jpeg\\)$\")",
+      "Bash(grep -nE \"^\\\\.nav__toggle \\\\{|^\\\\.nav \\\\.btn \\\\{|^/\\\\* ---------- Menu mobile\" css/style.css)",
+      "Bash(grep -nE \"\\\\.nav__links,|\\\\.nav \\\\.btn \\\\{|\\\\.nav__mobile \\\\{|display: none;\" css/style.css)",
+      "Bash(cd \"C:/Apache24/htdocs/lumo\" && echo \"=== img/ ===\" && ls -la img/ && echo \"=== recent in Downloads ===\" && ls -lt \"C:/Users/Connect/Downloads\" 2>/dev/null | head -8)",
+      "Read(//c/Users/Connect/Downloads/**)",
+      "Bash(mv \"compare-quarto-sketchup .png\" \"compare-quarto-sketchup.png\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Apache24\\htdocs\\lumo"
+    ]
+  }
+}
