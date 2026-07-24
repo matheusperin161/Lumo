@@ -10,6 +10,13 @@ SITE_DIR="/var/www/lumo-ia.com"
 echo "==> Atualizando $SITE_DIR"
 cd "$SITE_DIR"
 
+# Os arquivos pertencem ao www-data (para o nginx ler), mas este script roda
+# como root. O git bloqueia repositorios de outro dono, entao liberamos o caminho.
+if ! git config --global --get-all safe.directory 2>/dev/null | grep -qx "$SITE_DIR"; then
+  git config --global --add safe.directory "$SITE_DIR"
+  echo "    (repositorio liberado no git: safe.directory)"
+fi
+
 # Baixa a versão mais recente do branch main
 git fetch --all
 git reset --hard origin/main
