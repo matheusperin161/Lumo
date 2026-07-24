@@ -715,39 +715,6 @@ body.menu-open {
 }
 
 /* ============================================================
-   MARQUEE
-============================================================ */
-.marquee {
-  border-top: 1px solid var(--aresta);
-  border-bottom: 1px solid var(--aresta);
-  padding: 26px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-  z-index: 1;
-  background: var(--carvao-alto);
-}
-.marquee__track {
-  display: inline-flex;
-  align-items: center;
-  gap: 40px;
-  will-change: transform;
-}
-.marquee__track span {
-  font-size: clamp(1.4rem, 3vw, 2.4rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--tinta);
-}
-.marquee__diamond {
-  width: 11px;
-  height: 11px;
-  background: var(--grad);
-  transform: rotate(45deg);
-  flex: none;
-}
-
-/* ============================================================
    PROBLEMA
 ============================================================ */
 .problema .wrap {
@@ -770,56 +737,6 @@ body.menu-open {
 .problema .aside {
   border-left: 1px solid var(--aresta);
   padding-left: 32px;
-}
-
-/* ============================================================
-   NÚMEROS
-============================================================ */
-.nums {
-  border-top: 1px solid var(--aresta);
-  border-bottom: 1px solid var(--aresta);
-}
-.nums .wrap {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-}
-.num {
-  padding: 56px 28px 56px 0;
-  border-right: 1px solid var(--aresta);
-}
-.num:last-child {
-  border-right: 0;
-}
-.num__val {
-  font-size: clamp(2.6rem, 5vw, 4.4rem);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-.num__val .u {
-  font-size: 0.4em;
-  font-weight: 500;
-  letter-spacing: 0;
-  vertical-align: middle;
-  margin-left: 2px;
-  color: var(--tinta-fraca);
-}
-.num__label {
-  margin-top: 14px;
-  font-size: 13px;
-  color: var(--tinta-fraca);
-  max-width: 20ch;
-}
-.num:nth-child(1) .num__val {
-  color: var(--ambar);
-}
-.num:nth-child(4) .num__val {
-  background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 /* ============================================================
@@ -1059,55 +976,6 @@ body.menu-open {
   color: var(--tinta-fraca);
   font-size: 16px;
   max-width: 40ch;
-}
-
-/* ============================================================
-   GALERIA (horizontal scroll, bleed)
-============================================================ */
-.galeria {
-  overflow: hidden;
-  padding: 130px 0;
-}
-.galeria__head {
-  margin-bottom: 44px;
-}
-.galeria__track {
-  display: flex;
-  gap: 22px;
-  padding: 0 32px;
-  will-change: transform;
-}
-.gitem {
-  flex: none;
-  width: min(46vw, 560px);
-  position: relative;
-}
-.gitem figure {
-  overflow: hidden;
-  border: 1px solid var(--aresta);
-  aspect-ratio: 16/10;
-}
-.gitem img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s var(--ease);
-}
-.gitem:hover img {
-  transform: scale(1.04);
-}
-.gitem figcaption {
-  margin-top: 14px;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--tinta-fraca);
-  display: flex;
-  justify-content: space-between;
-}
-.gitem figcaption b {
-  color: var(--tinta);
-  font-weight: 500;
 }
 
 /* ============================================================
@@ -1626,18 +1494,6 @@ body.menu-open {
     padding-left: 0;
     padding-top: 26px;
   }
-  .nums .wrap {
-    grid-template-columns: 1fr 1fr;
-  }
-  .num {
-    border-right: 0;
-    border-bottom: 1px solid var(--aresta);
-    padding: 36px 0;
-  }
-  .num:nth-child(odd) {
-    border-right: 1px solid var(--aresta);
-    padding-right: 24px;
-  }
   .rec__grid {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -1672,9 +1528,6 @@ body.menu-open {
   }
   .plan:last-child {
     border-bottom: 0;
-  }
-  .gitem {
-    width: 78vw;
   }
   .section {
     padding: 90px 0;

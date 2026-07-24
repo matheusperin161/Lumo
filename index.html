@@ -126,7 +126,7 @@
           <a href="#precos" class="btn btn-primary magnetic focusable"><span data-en='Download the plugin'>Baixar o plugin</span>
             <svg viewBox="0 0 24 24"><path d="M12 4v11M6 11l6 6 6-6M5 20h14"/></svg>
           </a>
-          <a href="#galeria" class="btn btn-ghost focusable"><span data-en='See renders'>Ver renders</span>
+          <a href="#comparar" class="btn btn-ghost focusable"><span data-en='See renders'>Ver renders</span>
             <svg viewBox="0 0 24 24"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -135,11 +135,6 @@
   </div>
   <div class="hero__scroll" aria-hidden="true" data-en='scroll to reveal<span></span>'>role para revelar<span></span></div>
 </section>
-
-<!-- ============================ MARQUEE ============================ -->
-<div class="marquee" aria-label="Estilos de render disponíveis">
-  <div class="marquee__track" id="marquee"></div>
-</div>
 
 <!-- ============================ PROBLEMA ============================ -->
 <section class="section problema">
@@ -151,16 +146,6 @@
     <div class="aside">
       <p class="reveal" data-en='Good renders always cost time or money. You learn new software, fight with lighting and materials, leave the machine running all night — or pay someone and wait three days for an image that still comes back for tweaks.'>Render bom sempre custou tempo ou dinheiro. Você aprende um software novo, briga com iluminação e material, deixa a máquina ligada a noite inteira — ou paga alguém e espera três dias por uma imagem que ainda vai voltar para ajuste.</p>
     </div>
-  </div>
-</section>
-
-<!-- ============================ NÚMEROS ============================ -->
-<section class="nums">
-  <div class="wrap">
-    <div class="num reveal"><div class="num__val"><span class="u">&lt;</span><span class="count" data-to="30">0</span><span class="u">s</span></div><div class="num__label" data-en='average time per render'>tempo médio por render</div></div>
-    <div class="num reveal"><div class="num__val"><span class="count" data-to="4">0</span><span class="u">K</span></div><div class="num__label" data-en='output resolution'>resolução de saída</div></div>
-    <div class="num reveal"><div class="num__val"><span class="count" data-to="12">0</span></div><div class="num__label" data-en='ready-to-use styles'>estilos prontos para usar</div></div>
-    <div class="num reveal"><div class="num__val"><span class="count" data-to="0">0</span></div><div class="num__label" data-en='files exported'>arquivos exportados</div></div>
   </div>
 </section>
 
@@ -181,28 +166,18 @@
         <h3 data-en='Render without leaving SketchUp'>Renderiza sem sair do SketchUp</h3>
         <p data-en='The plugin reads the active viewport. The camera you framed is the render camera — no exporting anything.'>O plugin lê a viewport ativa. A câmera que você enquadrou é a câmera do render — sem exportar nada.</p>
       </article>
-      <article class="card card--std reveal tilt" tabindex="0">
-        <svg class="card__ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
-        <h3 data-en='Lighting solved'>Iluminação resolvida</h3>
-        <p data-en='The AI interprets the geometry and the time of day. You choose the mood, not each fixture value.'>A IA interpreta a geometria e a hora do dia. Você escolhe o clima, não o valor de cada luminária.</p>
-      </article>
       <article class="card card--tall reveal tilt" tabindex="0">
         <div class="card__media"><img src="img/render-c.png" alt="" loading="lazy"></div>
         <svg class="card__ic" viewBox="0 0 24 24"><path d="M4 20l4-9 3 5 3-7 6 11z"/><circle cx="8" cy="6" r="2"/></svg>
         <h3 data-en='Styles beyond photorealism'>Estilos além do fotorrealismo</h3>
         <p data-en='Sketch, watercolor, physical model and humanized plan — the same model, another language.'>Croqui, aquarela, maquete física e planta humanizada — o mesmo modelo, outra linguagem.</p>
       </article>
-      <article class="card card--std reveal tilt" tabindex="0">
-        <svg class="card__ic" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v4h-4"/></svg>
-        <h3 data-en='Cheap iteration'>Iteração barata</h3>
-        <p data-en='Generate five variations of the same scene before your coffee gets cold and take the best three to the client.'>Gere cinco variações da mesma cena antes do cafezinho esfriar e leve as três melhores para o cliente.</p>
-      </article>
-      <article class="card card--std reveal tilt" tabindex="0">
+      <article class="card card--wide reveal tilt" tabindex="0">
         <svg class="card__ic" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4v10l-8 4-8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg>
         <h3 data-en='Your materials respected'>Seus materiais respeitados</h3>
         <p data-en='The textures applied to the model guide the result instead of being discarded.'>As texturas aplicadas no modelo guiam o resultado em vez de serem descartadas.</p>
       </article>
-      <article class="card card--std reveal tilt" tabindex="0">
+      <article class="card card--wide reveal tilt" tabindex="0">
         <svg class="card__ic" viewBox="0 0 24 24"><path d="M4 15a4 4 0 0 1 1-7.5A5 5 0 0 1 19 8a3.5 3.5 0 0 1 0 7"/><path d="M12 12v7M9 16l3 3 3-3"/></svg>
         <h3 data-en='Runs on your everyday machine'>Roda na sua máquina de sempre</h3>
         <p data-en='Processing runs in the cloud. A student laptop delivers the same render as a workstation.'>O processamento é na nuvem. Notebook de estudante entrega o mesmo render que a workstation.</p>
@@ -238,20 +213,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ============================ GALERIA (horizontal) ============================ -->
-<section class="galeria" id="galeria">
-  <div class="wrap galeria__head">
-    <p class="eyebrow reveal" style="margin-bottom:22px" data-en='Gallery'>Galeria</p>
-    <h2 class="section-title reveal" data-lines data-en='Real scenes, output in <span class="gword">seconds.</span>'>Cenas reais, saídas em <span class="gword">segundos.</span></h2>
-  </div>
-  <div class="galeria__track" id="galTrack">
-    <figure class="gitem"><figure><img src="img/hero-after.png" alt="Render de fachada em golden hour" loading="lazy"></figure><figcaption><b data-en='Residential facade'>Fachada residencial</b><span data-en='Golden hour'>Golden hour</span></figcaption></figure>
-    <figure class="gitem"><figure><img src="img/render-a.png" alt="Render de área externa com piscina" loading="lazy"></figure><figcaption><b data-en='Leisure area'>Área de lazer</b><span data-en='Photorealistic'>Fotorrealista</span></figcaption></figure>
-    <figure class="gitem"><figure><img src="img/render-b.png" alt="Render de fachada ao entardecer" loading="lazy"></figure><figcaption><b data-en='Front view'>Vista frontal</b><span data-en='End of day'>Fim do dia</span></figcaption></figure>
-    <figure class="gitem"><figure><img src="img/render-c.png" alt="Render de vista elevada do projeto" loading="lazy"></figure><figcaption><b data-en='Elevated view'>Vista elevada</b><span data-en='Overcast day'>Dia nublado</span></figcaption></figure>
   </div>
 </section>
 
@@ -316,17 +277,17 @@
         <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Pricing'>Preço</p>
         <h2 class="section-title reveal" data-lines data-en='One plan, <span class="gword">no surprises.</span>'>Um plano, <span class="gword">sem surpresas.</span></h2>
       </div>
-      <p class="precos__lead reveal" data-en='Everything Lumo does for a single yearly price. You stay in control of when to spend on your renders.'>Tudo o que o Lumo faz por um valor único no ano. Você decide a hora de gastar nas suas renderizações.</p>
+      <p class="precos__lead reveal" data-en='You only pay the plugin subscription. Rendering runs on your own API key, so you manage it and decide exactly how much to spend.'>Você paga apenas a assinatura do plugin. As renderizações rodam na sua própria chave de API, então você gerencia e decide exatamente quanto gastar.</p>
     </div>
     <div class="plans plans--single">
       <div class="plan plan--solo reveal">
         <div class="plan__name" data-en='Annual plan'>Plano Anual</div>
         <div class="plan__price"><span class="cur">R$</span>499,99<span class="per" data-en='/year'>/ano</span></div>
-        <div class="plan__note" data-en='billed once a year, no recurring charges'>cobrado uma vez por ano, sem mensalidade</div>
+        <div class="plan__note" data-en='plugin subscription only — no charge on renders'>só a assinatura do plugin — sem cobrança nos renders</div>
         <ul>
           <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='Rendering in up to 4K'>Renderização em até 4K</span></li>
           <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='One active machine at a time'>Uma máquina ativa por vez</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='You choose when to render — spend at your own pace'>Você escolhe quando renderizar — gaste no seu ritmo</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='Use your own API key and control the spend'>Use sua própria chave de API e controle o gasto</span></li>
         </ul>
         <a href="#" class="btn btn-primary magnetic focusable" data-en='Subscribe to Lumo'>Assinar o Lumo</a>
       </div>
@@ -362,6 +323,10 @@
       <div class="acc__item">
         <button class="acc__q focusable" aria-expanded="false" data-en='Does it work on SketchUp Web?<span class="acc__ic"></span>'>Funciona no SketchUp Web?<span class="acc__ic"></span></button>
         <div class="acc__a"><div class="acc__a-inner" data-en='For now Lumo is a plugin for the desktop version. SketchUp Web support is on our roadmap — join the list to be notified.'>Por enquanto o Lumo é um plugin para a versão desktop. O suporte ao SketchUp Web está no nosso roteiro — entre na lista para ser avisado.</div></div>
+      </div>
+      <div class="acc__item">
+        <button class="acc__q focusable" aria-expanded="false" data-en='How am I charged for renders?<span class="acc__ic"></span>'>Como funciona a cobrança dos renders?<span class="acc__ic"></span></button>
+        <div class="acc__a"><div class="acc__a-inner" data-en='We only charge the plugin subscription. The rendering itself runs on your own API key, which you set up and manage — so you control exactly how much you spend and never depend on our credits.'>Nós cobramos apenas a assinatura do plugin. A renderização em si roda na sua própria chave de API, que você configura e gerencia — então você controla exatamente quanto gasta e nunca depende de créditos nossos.</div></div>
       </div>
     </div>
   </div>

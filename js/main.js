@@ -11,10 +11,6 @@
   let LANG = (localStorage.getItem(LANG_KEY)==='en') ? 'en' : 'pt';
   let THEME = (localStorage.getItem(THEME_KEY)==='light') ? 'light' : 'dark';
   const I18N = {
-    styles:{
-      pt:["Fotorrealista","Interior","Fachada","Noturno","Golden hour","Aquarela","Croqui","Maquete física","Dia nublado","Contraluz","Planta humanizada"],
-      en:["Photorealistic","Interior","Facade","Night","Golden hour","Watercolor","Sketch","Physical model","Overcast day","Backlight","Humanized plan"]
-    },
     swaps:{
       pt:["arquitetos","designers de interiores","estudantes","escritórios"],
       en:["architects","interior designers","students","studios"]
@@ -23,14 +19,6 @@
   let swapWords = I18N.swaps[LANG];
   let swapWI = 0;
   let heroAnimated = false;
-
-  /* ---------- MARQUEE build ---------- */
-  const mq = document.getElementById('marquee');
-  function fillMarquee(){
-    let html = "";
-    for(let r=0;r<2;r++){ I18N.styles[LANG].forEach(s=>{ html += '<span>'+s+'</span><i class="marquee__diamond"></i>'; }); }
-    mq.innerHTML = html;
-  }
 
   /* ---------- i18n: aplicar idioma ---------- */
   function applyLang(lang){
@@ -42,7 +30,6 @@
     });
     swapWords = I18N.swaps[lang]; swapWI = 0;
     const sw = document.querySelector('[data-swap]'); if(sw) sw.textContent = swapWords[0];
-    fillMarquee();
     document.querySelectorAll('.lang-code').forEach(s=>s.textContent=lang.toUpperCase());
     if(heroAnimated){ document.querySelectorAll('#hero-h1 .word-mask>span').forEach(s=>{s.style.transform='none';}); }
     localStorage.setItem(LANG_KEY, lang);
@@ -112,7 +99,7 @@
 
   /* ---------- PRELOADER ---------- */
   let SITE_STARTED=false;
-  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initCounters(); initSteps(); initGallery(); initEstilos(); initCompare(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
+  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initSteps(); initEstilos(); initCompare(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
   const plN=document.querySelector('.pl-n');
   function hidePreloader(){ const p=document.querySelector('.preloader'),c=document.querySelector('.curtain'); if(p)p.style.display='none'; if(c)c.style.display='none'; }
   if(RM){
@@ -140,7 +127,7 @@
       gsap.to(el,{opacity:1,y:0,duration:.8,ease:EASE,scrollTrigger:{trigger:el,start:"top 86%"}});
     });
     // stagger groups
-    [['.rec__grid','.card'],['.estilos__grid','.preset'],['.nums .wrap','.num']].forEach(([p,c])=>{
+    [['.rec__grid','.card'],['.estilos__grid','.preset']].forEach(([p,c])=>{
       const parent=document.querySelector(p); if(!parent) return;
       gsap.to(parent.querySelectorAll(c),{opacity:1,y:0,duration:.8,ease:EASE,stagger:.07,scrollTrigger:{trigger:parent,start:"top 82%"}});
     });
@@ -199,16 +186,6 @@
     heroAnimated=true;
   }
 
-  /* ---------- COUNTERS ---------- */
-  function initCounters(){
-    gsap.utils.toArray('.count').forEach(el=>{
-      const to=+el.dataset.to; const o={v:0};
-      ScrollTrigger.create({trigger:el,start:"top 88%",once:true,onEnter:()=>{
-        gsap.to(o,{v:to,duration:1.4,ease:"power2.out",onUpdate:()=>{el.textContent=Math.round(o.v);}});
-      }});
-    });
-  }
-
   /* ---------- STEPS pin ---------- */
   function initSteps(){
     const steps=gsap.utils.toArray('.step');
@@ -231,22 +208,6 @@
       trigger:'#stepsPin', start:"top top", end:"+=280%", pin:true, scrub:.4,
       onUpdate:s=>{ const i=Math.min(3,Math.floor(s.progress*4)); setActive(i); }
     });
-  }
-
-  /* ---------- GALLERY horizontal ---------- */
-  function initGallery(){
-    const track=document.getElementById('galTrack');
-    const amt=track.scrollWidth-window.innerWidth+64;
-    if(amt<=0) return;
-    let velTween;
-    const tw=gsap.to(track,{x:-amt,ease:"none",scrollTrigger:{
-      trigger:'.galeria', start:"top top", end:"+="+amt, pin:true, scrub:.5,
-      onUpdate:s=>{
-        if(isMobile) return;
-        const skew=gsap.utils.clamp(-4,4,s.getVelocity()/-260);
-        gsap.to(track,{skewX:skew,duration:.3,overwrite:'auto',onComplete:()=>gsap.to(track,{skewX:0,duration:.4})});
-      }
-    }});
   }
 
   /* ---------- ESTILOS (nothing extra, reveal handled) ---------- */
@@ -309,7 +270,7 @@
     let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
     addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.transform='translate('+mx+'px,'+my+'px) translate(-50%,-50%)';});
     (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';requestAnimationFrame(loop);})();
-    document.querySelectorAll('a,button,.card,.gitem,.preset').forEach(el=>{
+    document.querySelectorAll('a,button,.card,.preset').forEach(el=>{
       el.addEventListener('mouseenter',()=>ring.classList.add('is-active'));
       el.addEventListener('mouseleave',()=>ring.classList.remove('is-active'));
     });
