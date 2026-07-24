@@ -787,6 +787,9 @@ body.menu-open {
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
@@ -1727,6 +1730,187 @@ body.menu-open {
   stroke-linecap: round;
   stroke-linejoin: round;
   pointer-events: none;
+}
+
+/* ============================================================
+   SELETOR DE IDIOMA (bandeiras) + BANNER DE COOKIES
+============================================================ */
+.flag {
+  width: 20px;
+  height: 14px;
+  flex: none;
+  display: block;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
+}
+/* a bandeira não deve herdar o traço/tamanho dos ícones (.ctrl svg) */
+.flag svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  stroke: none;
+  stroke-width: 0;
+}
+.lang {
+  position: relative;
+}
+.lang__btn {
+  gap: 7px;
+}
+.lang__chev {
+  width: 13px;
+  height: 13px;
+  transition: transform 0.3s var(--ease);
+}
+.lang.open .lang__chev {
+  transform: rotate(180deg);
+}
+.lang__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 178px;
+  padding: 6px;
+  border: 1px solid var(--aresta-forte);
+  border-radius: 6px;
+  background: var(--carvao-alto);
+  color: var(--tinta);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.25s var(--ease),
+    transform 0.25s var(--ease),
+    visibility 0.25s;
+  z-index: 20;
+}
+.lang.open .lang__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.lang__menu .lang__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--tinta);
+  text-align: left;
+  transition: background 0.2s var(--ease);
+}
+.lang__menu .lang__item:hover {
+  background: var(--ghost-hover);
+}
+.lang__menu .lang__item[aria-selected="true"] {
+  background: var(--ghost-hover);
+}
+.lang__menu .lang__item[aria-selected="true"] > span:last-child {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* estado ativo nos botões de bandeira do menu mobile */
+.nav__mobile-ctrls .lang__item[aria-selected="true"] {
+  border-color: transparent;
+  box-shadow: 0 0 0 1.5px var(--violeta);
+}
+.nav__mobile-ctrls {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.nav__mobile-ctrls .ctrl {
+  gap: 7px;
+}
+
+/* ---------- Banner de cookies ---------- */
+.cookie {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9990;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(24px);
+  transition:
+    opacity 0.5s var(--ease),
+    transform 0.5s var(--ease),
+    visibility 0.5s;
+}
+.cookie.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.cookie__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  flex-wrap: wrap;
+  padding: 20px 24px;
+  border: 1px solid var(--aresta-forte);
+  border-radius: 10px;
+  background: var(--carvao-alto);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+.cookie__txt {
+  flex: 1 1 320px;
+  min-width: 260px;
+}
+.cookie__txt strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 5px;
+}
+.cookie__txt p {
+  color: var(--tinta-fraca);
+  font-size: 13.5px;
+  line-height: 1.55;
+  max-width: 68ch;
+}
+.cookie__acts {
+  display: flex;
+  gap: 10px;
+  flex: none;
+}
+.cookie__acts .btn {
+  padding: 12px 20px;
+  font-size: 13.5px;
+}
+@media (max-width: 620px) {
+  .cookie {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+  .cookie__inner {
+    padding: 18px;
+    gap: 16px;
+  }
+  .cookie__acts {
+    width: 100%;
+  }
+  .cookie__acts .btn {
+    flex: 1;
+    justify-content: center;
+  }
 }
 
 /* ============================================================

@@ -28,7 +28,11 @@
       "Bash(grep -nE \"\\\\.nav__links,|\\\\.nav \\\\.btn \\\\{|\\\\.nav__mobile \\\\{|display: none;\" css/style.css)",
       "Bash(cd \"C:/Apache24/htdocs/lumo\" && echo \"=== img/ ===\" && ls -la img/ && echo \"=== recent in Downloads ===\" && ls -lt \"C:/Users/Connect/Downloads\" 2>/dev/null | head -8)",
       "Read(//c/Users/Connect/Downloads/**)",
-      "Bash(mv \"compare-quarto-sketchup .png\" \"compare-quarto-sketchup.png\")"
+      "Bash(mv \"compare-quarto-sketchup .png\" \"compare-quarto-sketchup.png\")",
+      "Bash(cp index.html index.html.bak)",
+      "Bash(python \"C:/Users/Connect/AppData/Local/Temp/claude/c--Apache24-htdocs-lumo/2fa9f265-eed2-4f45-9e9d-74c3d14c44ee/scratchpad/add_es.py\")",
+      "Bash(grep -rnoE \"localhost|127\\\\.0\\\\.0\\\\.1|file:///|C:\\\\\\\\\\\\\\\\|http://[^\\\\\"']*\" index.html css/style.css js/main.js)",
+      "Bash(python \"C:/Users/Connect/AppData/Local/Temp/claude/c--Apache24-htdocs-lumo/2fa9f265-eed2-4f45-9e9d-74c3d14c44ee/scratchpad/make_zip.py\")"
     ],
     "additionalDirectories": [
       "C:\\Apache24\\htdocs\\lumo"

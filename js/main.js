@@ -7,13 +7,18 @@
   const EASE = "power3.out";
 
   /* ---------- i18n + THEME: estado e dicionário ---------- */
-  const LANG_KEY='lumo-lang', THEME_KEY='lumo-theme';
-  let LANG = (localStorage.getItem(LANG_KEY)==='en') ? 'en' : 'pt';
-  let THEME = (localStorage.getItem(THEME_KEY)==='light') ? 'light' : 'dark';
+  const LANG_KEY='lumo-lang', THEME_KEY='lumo-theme', COOKIE_KEY='lumo-cookies';
+  const LANGS = ['pt','en','es'];
+  const HTML_LANG = {pt:'pt-BR', en:'en', es:'es'};
+  function stored(key){ try{ return localStorage.getItem(key); }catch(e){ return null; } }
+  function store(key,val){ try{ localStorage.setItem(key,val); }catch(e){} }
+  let LANG = LANGS.indexOf(stored(LANG_KEY))>-1 ? stored(LANG_KEY) : 'pt';
+  let THEME = (stored(THEME_KEY)==='light') ? 'light' : 'dark';
   const I18N = {
     swaps:{
       pt:["arquitetos","designers de interiores","estudantes","escritórios"],
-      en:["architects","interior designers","students","studios"]
+      en:["architects","interior designers","students","studios"],
+      es:["arquitectos","diseñadores de interiores","estudiantes","estudios"]
     }
   };
   let swapWords = I18N.swaps[LANG];
@@ -22,33 +27,71 @@
 
   /* ---------- i18n: aplicar idioma ---------- */
   function applyLang(lang){
+    if(LANGS.indexOf(lang)===-1) lang='pt';
     LANG = lang;
-    document.documentElement.setAttribute('lang', lang==='en'?'en':'pt-BR');
+    document.documentElement.setAttribute('lang', HTML_LANG[lang]);
     document.querySelectorAll('[data-en]').forEach(el=>{
       if(el.dataset.pt===undefined) el.dataset.pt = el.innerHTML;
-      el.innerHTML = (lang==='en') ? el.getAttribute('data-en') : el.dataset.pt;
+      el.innerHTML = (lang==='pt')
+        ? el.dataset.pt
+        : (el.getAttribute('data-'+lang) || el.getAttribute('data-en') || el.dataset.pt);
     });
     swapWords = I18N.swaps[lang]; swapWI = 0;
     const sw = document.querySelector('[data-swap]'); if(sw) sw.textContent = swapWords[0];
     document.querySelectorAll('.lang-code').forEach(s=>s.textContent=lang.toUpperCase());
+    // marca o idioma ativo e espelha a bandeira no botão
+    document.querySelectorAll('.lang__item').forEach(it=>{
+      it.setAttribute('aria-selected', String(it.dataset.lang===lang));
+    });
+    const src = document.querySelector('#langMenu .lang__item[data-lang="'+lang+'"] .flag');
+    const slot = document.getElementById('langFlagCur');
+    if(src && slot) slot.innerHTML = src.innerHTML;
     if(heroAnimated){ document.querySelectorAll('#hero-h1 .word-mask>span').forEach(s=>{s.style.transform='none';}); }
-    localStorage.setItem(LANG_KEY, lang);
+    store(LANG_KEY, lang);
   }
-  function toggleLang(){ applyLang(LANG==='en'?'pt':'en'); }
 
   /* ---------- TEMA: aplicar claro/escuro ---------- */
   function applyTheme(t){
     THEME = t;
     document.documentElement.setAttribute('data-theme', t);
-    localStorage.setItem(THEME_KEY, t);
+    store(THEME_KEY, t);
   }
   function toggleTheme(){ applyTheme(THEME==='light'?'dark':'light'); }
 
   /* aplicar preferências salvas + ligar botões */
   applyTheme(THEME);
   applyLang(LANG);
-  ['langToggle','langToggleM'].forEach(id=>{ const b=document.getElementById(id); if(b) b.addEventListener('click',toggleLang); });
   ['themeToggle','themeToggleM'].forEach(id=>{ const b=document.getElementById(id); if(b) b.addEventListener('click',toggleTheme); });
+
+  /* ---------- Dropdown de idioma ---------- */
+  const langWrap=document.getElementById('langWrap'), langBtn=document.getElementById('langBtn');
+  function closeLangMenu(){
+    if(!langWrap) return;
+    langWrap.classList.remove('open');
+    if(langBtn) langBtn.setAttribute('aria-expanded','false');
+  }
+  if(langWrap && langBtn){
+    langBtn.addEventListener('click',e=>{
+      e.stopPropagation();
+      const open = langWrap.classList.toggle('open');
+      langBtn.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click',e=>{ if(!langWrap.contains(e.target)) closeLangMenu(); });
+  }
+  document.querySelectorAll('.lang__item').forEach(it=>{
+    it.addEventListener('click',()=>{ applyLang(it.dataset.lang); closeLangMenu(); });
+  });
+
+  /* ---------- Banner de cookies ---------- */
+  const cookieBar=document.getElementById('cookieBar');
+  function saveCookieChoice(v){ store(COOKIE_KEY, v); if(cookieBar) cookieBar.classList.remove('show'); }
+  function maybeShowCookieBar(){
+    if(!cookieBar || stored(COOKIE_KEY)) return;
+    setTimeout(()=>cookieBar.classList.add('show'), 900);
+  }
+  const ckA=document.getElementById('cookieAccept'), ckR=document.getElementById('cookieReject');
+  if(ckA) ckA.addEventListener('click',()=>saveCookieChoice('all'));
+  if(ckR) ckR.addEventListener('click',()=>saveCookieChoice('essential'));
 
   /* ---------- LENIS smooth scroll (own rAF loop, decoupled from gsap.ticker) ---------- */
   let lenis=null;
@@ -85,7 +128,7 @@
   function closeMobile(){ setMobile(false); }
   if(navToggle&&navMobile){
     navToggle.addEventListener('click',()=>setMobile(!navMobile.classList.contains('open')));
-    document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMobile(); });
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeMobile(); closeLangMenu(); } });
   }
 
   /* ---------- PROGRESS bar ---------- */
@@ -99,7 +142,7 @@
 
   /* ---------- PRELOADER ---------- */
   let SITE_STARTED=false;
-  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initSteps(); initEstilos(); initCompare(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
+  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initSteps(); initEstilos(); initCompare(); maybeShowCookieBar(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
   const plN=document.querySelector('.pl-n');
   function hidePreloader(){ const p=document.querySelector('.preloader'),c=document.querySelector('.curtain'); if(p)p.style.display='none'; if(c)c.style.display='none'; }
   if(RM){

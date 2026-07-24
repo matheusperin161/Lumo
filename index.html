@@ -12,7 +12,7 @@
 <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 <link rel="icon" type="image/png" sizes="512x512" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<script>try{var t=localStorage.getItem('lumo-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('lumo-lang');if(l==='en')document.documentElement.setAttribute('lang','en');}catch(e){}</script>
+<script>try{var t=localStorage.getItem('lumo-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('lumo-lang');if(l==='en')document.documentElement.setAttribute('lang','en');else if(l==='es')document.documentElement.setAttribute('lang','es');}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -51,25 +51,42 @@
     Lumo
   </a>
   <nav class="nav__links" aria-label="Principal">
-    <a href="#recursos" data-en='Features'>Recursos</a>
-    <a href="#como" data-en='How it works'>Como funciona</a>
-    <a href="#comparar" data-en='Compare'>Comparar</a>
-    <a href="#estilos" data-en='Styles'>Estilos</a>
-    <a href="#precos" data-en='Pricing'>Preços</a>
-    <a href="#faq" data-en='FAQ'>FAQ</a>
+    <a href="#recursos" data-en='Features' data-es='Funciones'>Recursos</a>
+    <a href="#como" data-en='How it works' data-es='Cómo funciona'>Como funciona</a>
+    <a href="#comparar" data-en='Compare' data-es='Comparar'>Comparar</a>
+    <a href="#estilos" data-en='Styles' data-es='Estilos'>Estilos</a>
+    <a href="#precos" data-en='Pricing' data-es='Precios'>Preços</a>
+    <a href="#faq" data-en='FAQ' data-es='FAQ'>FAQ</a>
   </nav>
   <div class="nav__right">
     <div class="nav__ctrls">
-      <button class="ctrl focusable" id="langToggle" aria-label="Change language">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"/></svg>
-        <span class="lang-code">PT</span>
-      </button>
+      <div class="lang" id="langWrap">
+        <button class="ctrl lang__btn focusable" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma / Language">
+          <span class="flag" id="langFlagCur"></span>
+          <span class="lang-code">PT</span>
+          <svg class="lang__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang__menu" id="langMenu" role="listbox">
+          <button class="lang__item focusable" data-lang="pt" role="option">
+            <span class="flag"><svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#009B3A"/><path d="M12 2.2l9.4 5.8L12 13.8 2.6 8z" fill="#FEDF00"/><circle cx="12" cy="8" r="3.1" fill="#002776"/></svg></span>
+            <span>Português</span>
+          </button>
+          <button class="lang__item focusable" data-lang="en" role="option">
+            <span class="flag"><svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#fff"/><g fill="#B22234"><rect width="24" height="2.2"/><rect y="4.4" width="24" height="2.2"/><rect y="8.8" width="24" height="2.2"/><rect y="13.2" width="24" height="2.2"/></g><rect width="10.5" height="8.8" fill="#3C3B6E"/></svg></span>
+            <span>English</span>
+          </button>
+          <button class="lang__item focusable" data-lang="es" role="option">
+            <span class="flag"><svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#AA151B"/><rect y="4.3" width="24" height="7.4" fill="#F1BF00"/></svg></span>
+            <span>Español</span>
+          </button>
+        </div>
+      </div>
       <button class="ctrl focusable" id="themeToggle" aria-label="Alternar tema">
         <svg class="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.4 1.4M17.6 17.6L19 19M19 5l-1.4 1.4M6.4 17.6L5 19"/></svg>
       </button>
     </div>
-    <a href="#precos" class="btn btn-primary magnetic focusable"><span data-en='Download the plugin'>Baixar o plugin</span>
+    <a href="#precos" class="btn btn-primary magnetic focusable"><span data-en='Download the plugin' data-es='Descargar el plugin'>Baixar o plugin</span>
       <svg viewBox="0 0 24 24"><path d="M12 4v11M6 11l6 6 6-6M5 20h14"/></svg>
     </a>
   </div>
@@ -78,19 +95,24 @@
 
 <!-- ============================ MENU MOBILE ============================ -->
 <nav class="nav__mobile" id="navMobile" aria-label="Menu mobile" aria-hidden="true">
-  <a href="#recursos" data-en='Features'>Recursos</a>
-  <a href="#como" data-en='How it works'>Como funciona</a>
-  <a href="#comparar" data-en='Compare'>Comparar</a>
-  <a href="#estilos" data-en='Styles'>Estilos</a>
-  <a href="#precos" data-en='Pricing'>Preços</a>
-  <a href="#faq" data-en='FAQ'>FAQ</a>
-  <a href="#precos" class="btn btn-primary focusable"><span data-en='Download the plugin'>Baixar o plugin</span>
+  <a href="#recursos" data-en='Features' data-es='Funciones'>Recursos</a>
+  <a href="#como" data-en='How it works' data-es='Cómo funciona'>Como funciona</a>
+  <a href="#comparar" data-en='Compare' data-es='Comparar'>Comparar</a>
+  <a href="#estilos" data-en='Styles' data-es='Estilos'>Estilos</a>
+  <a href="#precos" data-en='Pricing' data-es='Precios'>Preços</a>
+  <a href="#faq" data-en='FAQ' data-es='FAQ'>FAQ</a>
+  <a href="#precos" class="btn btn-primary focusable"><span data-en='Download the plugin' data-es='Descargar el plugin'>Baixar o plugin</span>
     <svg viewBox="0 0 24 24"><path d="M12 4v11M6 11l6 6 6-6M5 20h14"/></svg>
   </a>
   <div class="nav__mobile-ctrls">
-    <button class="ctrl focusable" id="langToggleM" aria-label="Change language">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"/></svg>
-      <span class="lang-code">PT</span>
+    <button class="ctrl lang__item focusable" data-lang="pt" aria-label="Português">
+      <span class="flag"><svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#009B3A"/><path d="M12 2.2l9.4 5.8L12 13.8 2.6 8z" fill="#FEDF00"/><circle cx="12" cy="8" r="3.1" fill="#002776"/></svg></span>PT
+    </button>
+    <button class="ctrl lang__item focusable" data-lang="en" aria-label="English">
+      <span class="flag"><svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#fff"/><g fill="#B22234"><rect width="24" height="2.2"/><rect y="4.4" width="24" height="2.2"/><rect y="8.8" width="24" height="2.2"/><rect y="13.2" width="24" height="2.2"/></g><rect width="10.5" height="8.8" fill="#3C3B6E"/></svg></span>EN
+    </button>
+    <button class="ctrl lang__item focusable" data-lang="es" aria-label="Español">
+      <span class="flag"><svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#AA151B"/><rect y="4.3" width="24" height="7.4" fill="#F1BF00"/></svg></span>ES
     </button>
     <button class="ctrl focusable" id="themeToggleM" aria-label="Alternar tema">
       <svg class="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -116,35 +138,35 @@
   <div class="hero__copy">
     <div class="wrap">
       <div>
-        <p class="eyebrow reveal" style="margin-bottom:22px" data-en='Plugin for SketchUp'>Plugin para SketchUp</p>
-        <h1 id="hero-h1" data-en='From model to final <span class="gword">image</span> in seconds.'><span class="word-mask"><span>Do</span></span> <span class="word-mask"><span>modelo</span></span> <span class="word-mask"><span>à</span></span> <span class="word-mask"><span class="gword">imagem</span></span> <span class="word-mask"><span>final</span></span> <span class="word-mask"><span>em</span></span> <span class="word-mask"><span>segundos.</span></span></h1>
+        <p class="eyebrow reveal" style="margin-bottom:22px" data-en='Plugin for SketchUp' data-es='Plugin para SketchUp'>Plugin para SketchUp</p>
+        <h1 id="hero-h1" data-en='From model to final <span class="gword">image</span> in seconds.' data-es='Del modelo a la <span class="gword">imagen</span> final en segundos.'><span class="word-mask"><span>Do</span></span> <span class="word-mask"><span>modelo</span></span> <span class="word-mask"><span>à</span></span> <span class="word-mask"><span class="gword">imagem</span></span> <span class="word-mask"><span>final</span></span> <span class="word-mask"><span>em</span></span> <span class="word-mask"><span>segundos.</span></span></h1>
       </div>
       <div class="hero__side">
-        <p class="hero__sub reveal" data-en='Lumo renders right inside SketchUp. No file exports, no lighting setup, no all-nighters watching a progress bar.'>O Lumo renderiza direto dentro do SketchUp. Sem exportar arquivo, sem montar iluminação, sem madrugada esperando barra de progresso.</p>
-        <p class="hero__sub reveal" style="margin-bottom:0" data-en='Made for <span class="swap gword"><b data-swap>architects</b></span>'>Feito para <span class="swap gword"><b data-swap>arquitetos</b></span></p>
+        <p class="hero__sub reveal" data-en='Lumo renders right inside SketchUp. No file exports, no lighting setup, no all-nighters watching a progress bar.' data-es='Lumo renderiza dentro de SketchUp. Sin exportar archivos, sin montar iluminación, sin madrugadas esperando una barra de progreso.'>O Lumo renderiza direto dentro do SketchUp. Sem exportar arquivo, sem montar iluminação, sem madrugada esperando barra de progresso.</p>
+        <p class="hero__sub reveal" style="margin-bottom:0" data-en='Made for <span class="swap gword"><b data-swap>architects</b></span>' data-es='Hecho para <span class="swap gword"><b data-swap>arquitectos</b></span>'>Feito para <span class="swap gword"><b data-swap>arquitetos</b></span></p>
         <div class="hero__ctas reveal">
-          <a href="#precos" class="btn btn-primary magnetic focusable"><span data-en='Download the plugin'>Baixar o plugin</span>
+          <a href="#precos" class="btn btn-primary magnetic focusable"><span data-en='Download the plugin' data-es='Descargar el plugin'>Baixar o plugin</span>
             <svg viewBox="0 0 24 24"><path d="M12 4v11M6 11l6 6 6-6M5 20h14"/></svg>
           </a>
-          <a href="#comparar" class="btn btn-ghost focusable"><span data-en='See renders'>Ver renders</span>
+          <a href="#comparar" class="btn btn-ghost focusable"><span data-en='See renders' data-es='Ver renders'>Ver renders</span>
             <svg viewBox="0 0 24 24"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
       </div>
     </div>
   </div>
-  <div class="hero__scroll" aria-hidden="true" data-en='scroll to reveal<span></span>'>role para revelar<span></span></div>
+  <div class="hero__scroll" aria-hidden="true" data-en='scroll to reveal<span></span>' data-es='desplaza para revelar<span></span>'>role para revelar<span></span></div>
 </section>
 
 <!-- ============================ PROBLEMA ============================ -->
 <section class="section problema">
   <div class="wrap">
     <div>
-      <p class="eyebrow reveal" style="margin-bottom:30px" data-en='The real pain'>A dor real</p>
-      <h2 class="reveal" data-lines data-en='You modeled in 2 hours. And spent 6 <span class="gword">rendering.</span>'>Você modelou em 2 horas. E gastou 6 <span class="gword">renderizando.</span></h2>
+      <p class="eyebrow reveal" style="margin-bottom:30px" data-en='The real pain' data-es='El dolor real'>A dor real</p>
+      <h2 class="reveal" data-lines data-en='You modeled in 2 hours. And spent 6 <span class="gword">rendering.</span>' data-es='Modelaste en 2 horas. Y gastaste 6 <span class="gword">renderizando.</span>'>Você modelou em 2 horas. E gastou 6 <span class="gword">renderizando.</span></h2>
     </div>
     <div class="aside">
-      <p class="reveal" data-en='Good renders always cost time or money. You learn new software, fight with lighting and materials, leave the machine running all night — or pay someone and wait three days for an image that still comes back for tweaks.'>Render bom sempre custou tempo ou dinheiro. Você aprende um software novo, briga com iluminação e material, deixa a máquina ligada a noite inteira — ou paga alguém e espera três dias por uma imagem que ainda vai voltar para ajuste.</p>
+      <p class="reveal" data-en='Good renders always cost time or money. You learn new software, fight with lighting and materials, leave the machine running all night — or pay someone and wait three days for an image that still comes back for tweaks.' data-es='Un buen render siempre costó tiempo o dinero. Aprendes un software nuevo, peleas con la iluminación y los materiales, dejas la máquina encendida toda la noche — o pagas a alguien y esperas tres días por una imagen que aún volverá para ajustes.'>Render bom sempre custou tempo ou dinheiro. Você aprende um software novo, briga com iluminação e material, deixa a máquina ligada a noite inteira — ou paga alguém e espera três dias por uma imagem que ainda vai voltar para ajuste.</p>
     </div>
   </div>
 </section>
@@ -154,33 +176,33 @@
   <div class="wrap">
     <div class="rec__head">
       <div>
-        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Features'>Recursos</p>
-        <h2 class="section-title reveal" data-lines data-en='Rendering stops being a <span class="gword">step</span> and becomes a gesture.'>O render deixa de ser <span class="gword">etapa</span> e vira gesto.</h2>
+        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Features' data-es='Funciones'>Recursos</p>
+        <h2 class="section-title reveal" data-lines data-en='Rendering stops being a <span class="gword">step</span> and becomes a gesture.' data-es='El render deja de ser una <span class="gword">etapa</span> y se vuelve un gesto.'>O render deixa de ser <span class="gword">etapa</span> e vira gesto.</h2>
       </div>
-      <p class="reveal" data-en='It all happens in the viewport you already have open. No exports, no duplicated scenes, no files lost between versions.'>Tudo acontece na viewport que você já tem aberta. Nenhuma exportação, nenhuma cena duplicada, nenhum arquivo perdido entre versões.</p>
+      <p class="reveal" data-en='It all happens in the viewport you already have open. No exports, no duplicated scenes, no files lost between versions.' data-es='Todo ocurre en la viewport que ya tienes abierta. Sin exportaciones, sin escenas duplicadas, sin archivos perdidos entre versiones.'>Tudo acontece na viewport que você já tem aberta. Nenhuma exportação, nenhuma cena duplicada, nenhum arquivo perdido entre versões.</p>
     </div>
     <div class="rec__grid">
       <article class="card card--feat reveal tilt" tabindex="0">
         <div class="card__media"><img src="img/render-a.png" alt="" loading="lazy"></div>
         <svg class="card__ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14"/><path d="M3 9h18M8 4v5"/><circle cx="16" cy="13.5" r="2"/></svg>
-        <h3 data-en='Render without leaving SketchUp'>Renderiza sem sair do SketchUp</h3>
-        <p data-en='The plugin reads the active viewport. The camera you framed is the render camera — no exporting anything.'>O plugin lê a viewport ativa. A câmera que você enquadrou é a câmera do render — sem exportar nada.</p>
+        <h3 data-en='Render without leaving SketchUp' data-es='Renderiza sin salir de SketchUp'>Renderiza sem sair do SketchUp</h3>
+        <p data-en='The plugin reads the active viewport. The camera you framed is the render camera — no exporting anything.' data-es='El plugin lee la viewport activa. La cámara que encuadraste es la cámara del render — sin exportar nada.'>O plugin lê a viewport ativa. A câmera que você enquadrou é a câmera do render — sem exportar nada.</p>
       </article>
       <article class="card card--tall reveal tilt" tabindex="0">
         <div class="card__media"><img src="img/render-c.png" alt="" loading="lazy"></div>
         <svg class="card__ic" viewBox="0 0 24 24"><path d="M4 20l4-9 3 5 3-7 6 11z"/><circle cx="8" cy="6" r="2"/></svg>
-        <h3 data-en='Styles beyond photorealism'>Estilos além do fotorrealismo</h3>
-        <p data-en='Sketch, watercolor, physical model and humanized plan — the same model, another language.'>Croqui, aquarela, maquete física e planta humanizada — o mesmo modelo, outra linguagem.</p>
+        <h3 data-en='Styles beyond photorealism' data-es='Estilos más allá del fotorrealismo'>Estilos além do fotorrealismo</h3>
+        <p data-en='Sketch, watercolor, physical model and humanized plan — the same model, another language.' data-es='Boceto, acuarela, maqueta física y plano humanizado — el mismo modelo, otro lenguaje.'>Croqui, aquarela, maquete física e planta humanizada — o mesmo modelo, outra linguagem.</p>
       </article>
       <article class="card card--wide reveal tilt" tabindex="0">
         <svg class="card__ic" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4v10l-8 4-8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg>
-        <h3 data-en='Your materials respected'>Seus materiais respeitados</h3>
-        <p data-en='The textures applied to the model guide the result instead of being discarded.'>As texturas aplicadas no modelo guiam o resultado em vez de serem descartadas.</p>
+        <h3 data-en='Your materials respected' data-es='Tus materiales respetados'>Seus materiais respeitados</h3>
+        <p data-en='The textures applied to the model guide the result instead of being discarded.' data-es='Las texturas aplicadas al modelo guían el resultado en vez de ser descartadas.'>As texturas aplicadas no modelo guiam o resultado em vez de serem descartadas.</p>
       </article>
       <article class="card card--wide reveal tilt" tabindex="0">
         <svg class="card__ic" viewBox="0 0 24 24"><path d="M4 15a4 4 0 0 1 1-7.5A5 5 0 0 1 19 8a3.5 3.5 0 0 1 0 7"/><path d="M12 12v7M9 16l3 3 3-3"/></svg>
-        <h3 data-en='Runs on your everyday machine'>Roda na sua máquina de sempre</h3>
-        <p data-en='Processing runs in the cloud. A student laptop delivers the same render as a workstation.'>O processamento é na nuvem. Notebook de estudante entrega o mesmo render que a workstation.</p>
+        <h3 data-en='Runs on your everyday machine' data-es='Funciona en tu máquina de siempre'>Roda na sua máquina de sempre</h3>
+        <p data-en='Processing runs in the cloud. A student laptop delivers the same render as a workstation.' data-es='El procesamiento es en la nube. Un portátil de estudiante entrega el mismo render que una workstation.'>O processamento é na nuvem. Notebook de estudante entrega o mesmo render que a workstation.</p>
       </article>
     </div>
   </div>
@@ -189,17 +211,17 @@
 <!-- ============================ COMO FUNCIONA (pin) ============================ -->
 <section id="como" class="steps">
   <div class="wrap" style="padding-top:110px">
-    <p class="eyebrow reveal" style="margin-bottom:26px" data-en='How it works'>Como funciona</p>
-    <h2 class="section-title reveal" data-lines style="max-width:16ch" data-en='Four steps between the <span class="gword">model</span> and the delivery folder.'>Quatro passos entre o <span class="gword">modelo</span> e a pasta de entrega.</h2>
+    <p class="eyebrow reveal" style="margin-bottom:26px" data-en='How it works' data-es='Cómo funciona'>Como funciona</p>
+    <h2 class="section-title reveal" data-lines style="max-width:16ch" data-en='Four steps between the <span class="gword">model</span> and the delivery folder.' data-es='Cuatro pasos entre el <span class="gword">modelo</span> y la carpeta de entrega.'>Quatro passos entre o <span class="gword">modelo</span> e a pasta de entrega.</h2>
   </div>
   <div class="steps__sticky" id="stepsPin">
     <div class="wrap steps__inner">
       <div>
         <div class="steps__list">
-          <div class="step on" data-step="0"><div class="step__n">01</div><h3 data-en='Install the plugin'>Instale o plugin</h3><p data-en='A .rbz file through the Extension Manager. One minute and Lumo shows up in your toolbar.'>Arquivo .rbz pelo Extension Manager. Um minuto e o Lumo aparece na sua barra.</p></div>
-          <div class="step" data-step="1"><div class="step__n">02</div><h3 data-en='Frame the scene'>Enquadre a cena</h3><p data-en='Position the camera as you already do. The active view is the render view.'>Posicione a câmera como você já faz. A vista ativa é a vista do render.</p></div>
-          <div class="step" data-step="2"><div class="step__n">03</div><h3 data-en='Choose the style'>Escolha o estilo</h3><p data-en='Mood, time of day and resolution in the side panel. No managing light fixtures.'>Clima, hora do dia e resolução no painel lateral. Sem gerenciar luminárias.</p></div>
-          <div class="step" data-step="3"><div class="step__n">04</div><h3 data-en='Generate the render'>Gere o render</h3><p data-en='The image appears on screen and goes straight to your folder. Ready for the client.'>A imagem aparece na tela e vai direto para a sua pasta. Pronta para o cliente.</p></div>
+          <div class="step on" data-step="0"><div class="step__n">01</div><h3 data-en='Install the plugin' data-es='Instala el plugin'>Instale o plugin</h3><p data-en='A .rbz file through the Extension Manager. One minute and Lumo shows up in your toolbar.' data-es='Archivo .rbz por el Extension Manager. Un minuto y Lumo aparece en tu barra.'>Arquivo .rbz pelo Extension Manager. Um minuto e o Lumo aparece na sua barra.</p></div>
+          <div class="step" data-step="1"><div class="step__n">02</div><h3 data-en='Frame the scene' data-es='Encuadra la escena'>Enquadre a cena</h3><p data-en='Position the camera as you already do. The active view is the render view.' data-es='Coloca la cámara como ya lo haces. La vista activa es la vista del render.'>Posicione a câmera como você já faz. A vista ativa é a vista do render.</p></div>
+          <div class="step" data-step="2"><div class="step__n">03</div><h3 data-en='Choose the style' data-es='Elige el estilo'>Escolha o estilo</h3><p data-en='Mood, time of day and resolution in the side panel. No managing light fixtures.' data-es='Clima, hora del día y resolución en el panel lateral. Sin gestionar luminarias.'>Clima, hora do dia e resolução no painel lateral. Sem gerenciar luminárias.</p></div>
+          <div class="step" data-step="3"><div class="step__n">04</div><h3 data-en='Generate the render' data-es='Genera el render'>Gere o render</h3><p data-en='The image appears on screen and goes straight to your folder. Ready for the client.' data-es='La imagen aparece en pantalla y va directo a tu carpeta. Lista para el cliente.'>A imagem aparece na tela e vai direto para a sua pasta. Pronta para o cliente.</p></div>
         </div>
       </div>
       <div class="steps__sticky-r">
@@ -221,10 +243,10 @@
   <div class="wrap">
     <div class="rec__head">
       <div>
-        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Before / after'>Antes e depois</p>
-        <h2 class="section-title reveal" data-lines data-en='The same model, <span class="gword">rendered.</span>'>O mesmo modelo, <span class="gword">renderizado.</span></h2>
+        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Before / after' data-es='Antes y después'>Antes e depois</p>
+        <h2 class="section-title reveal" data-lines data-en='The same model, <span class="gword">rendered.</span>' data-es='El mismo modelo, <span class="gword">renderizado.</span>'>O mesmo modelo, <span class="gword">renderizado.</span></h2>
       </div>
-      <p class="reveal" data-en='Drag the divider to compare the raw SketchUp viewport with the final Lumo render.'>Arraste o divisor para comparar a viewport crua do SketchUp com o render final do Lumo.</p>
+      <p class="reveal" data-en='Drag the divider to compare the raw SketchUp viewport with the final Lumo render.' data-es='Arrastra el divisor para comparar la viewport cruda de SketchUp con el render final de Lumo.'>Arraste o divisor para comparar a viewport crua do SketchUp com o render final do Lumo.</p>
     </div>
     <div class="compare__grid" id="compareGrid">
       <!-- Cada comparação é um <figure class="cmp">. Para adicionar mais,
@@ -234,7 +256,7 @@
           <img class="cmp__base" src="img/compare-quarto-render.png" alt="Quarto renderizado pelo Lumo" loading="lazy">
           <img class="cmp__reveal" src="img/compare-quarto-sketchup.png" alt="Mesmo quarto na viewport do SketchUp" loading="lazy">
           <span class="cmp__tag cmp__tag--tl"><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" style="fill:#0d1117"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z"/></svg>Lumo</span>
-          <span class="cmp__tag cmp__tag--tr" data-en='Bedroom · Daytime'>Quarto · Diurno</span>
+          <span class="cmp__tag cmp__tag--tr" data-en='Bedroom · Daytime' data-es='Dormitorio · Diurno'>Quarto · Diurno</span>
           <span class="cmp__badge cmp__badge--bl">Render</span>
           <span class="cmp__badge cmp__badge--br">SketchUp</span>
           <div class="cmp__divider"></div>
@@ -252,18 +274,18 @@
   <div class="wrap">
     <div class="rec__head">
       <div>
-        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Styles'>Estilos</p>
-        <h2 class="section-title reveal" data-lines data-en='One scene, many <span class="gword">languages.</span>'>Uma cena, várias <span class="gword">linguagens.</span></h2>
+        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Styles' data-es='Estilos'>Estilos</p>
+        <h2 class="section-title reveal" data-lines data-en='One scene, many <span class="gword">languages.</span>' data-es='Una escena, varios <span class="gword">lenguajes.</span>'>Uma cena, várias <span class="gword">linguagens.</span></h2>
       </div>
-      <p class="reveal" data-en='From photorealism to presentation sketch. Switch aesthetics without touching the model — ideal for telling the same story across different project phases.'>Do fotorrealismo ao croqui de apresentação. Troque de estética sem tocar no modelo — ideal para contar a mesma história em fases diferentes do projeto.</p>
+      <p class="reveal" data-en='From photorealism to presentation sketch. Switch aesthetics without touching the model — ideal for telling the same story across different project phases.' data-es='Del fotorrealismo al boceto de presentación. Cambia de estética sin tocar el modelo — ideal para contar la misma historia en fases distintas del proyecto.'>Do fotorrealismo ao croqui de apresentação. Troque de estética sem tocar no modelo — ideal para contar a mesma história em fases diferentes do projeto.</p>
     </div>
     <div class="estilos__grid">
-      <figure class="preset reveal"><img class="f-photo" src="img/hero-after.png" alt="Estilo fotorrealista" loading="lazy"><figcaption data-en='Photorealistic <em>01</em>'>Fotorrealista <em>01</em></figcaption></figure>
-      <figure class="preset reveal"><img class="f-noite" src="img/render-b.png" alt="Estilo noturno" loading="lazy"><figcaption data-en='Night <em>02</em>'>Noturno <em>02</em></figcaption></figure>
-      <figure class="preset reveal"><img class="f-golden" src="img/render-a.png" alt="Estilo golden hour" loading="lazy"><figcaption data-en='Golden hour <em>03</em>'>Golden hour <em>03</em></figcaption></figure>
-      <figure class="preset reveal"><img class="f-aquarela" src="img/render-c.png" alt="Estilo aquarela" loading="lazy"><figcaption data-en='Watercolor <em>04</em>'>Aquarela <em>04</em></figcaption></figure>
-      <figure class="preset reveal"><img class="f-croqui" src="img/hero-after.png" alt="Estilo croqui" loading="lazy"><figcaption data-en='Sketch <em>05</em>'>Croqui <em>05</em></figcaption></figure>
-      <figure class="preset reveal"><img class="f-maquete" src="img/render-a.png" alt="Estilo maquete física" loading="lazy"><figcaption data-en='Model <em>06</em>'>Maquete <em>06</em></figcaption></figure>
+      <figure class="preset reveal"><img class="f-photo" src="img/hero-after.png" alt="Estilo fotorrealista" loading="lazy"><figcaption data-en='Photorealistic <em>01</em>' data-es='Fotorrealista <em>01</em>'>Fotorrealista <em>01</em></figcaption></figure>
+      <figure class="preset reveal"><img class="f-noite" src="img/render-b.png" alt="Estilo noturno" loading="lazy"><figcaption data-en='Night <em>02</em>' data-es='Nocturno <em>02</em>'>Noturno <em>02</em></figcaption></figure>
+      <figure class="preset reveal"><img class="f-golden" src="img/render-a.png" alt="Estilo golden hour" loading="lazy"><figcaption data-en='Golden hour <em>03</em>' data-es='Golden hour <em>03</em>'>Golden hour <em>03</em></figcaption></figure>
+      <figure class="preset reveal"><img class="f-aquarela" src="img/render-c.png" alt="Estilo aquarela" loading="lazy"><figcaption data-en='Watercolor <em>04</em>' data-es='Acuarela <em>04</em>'>Aquarela <em>04</em></figcaption></figure>
+      <figure class="preset reveal"><img class="f-croqui" src="img/hero-after.png" alt="Estilo croqui" loading="lazy"><figcaption data-en='Sketch <em>05</em>' data-es='Boceto <em>05</em>'>Croqui <em>05</em></figcaption></figure>
+      <figure class="preset reveal"><img class="f-maquete" src="img/render-a.png" alt="Estilo maquete física" loading="lazy"><figcaption data-en='Model <em>06</em>' data-es='Maqueta <em>06</em>'>Maquete <em>06</em></figcaption></figure>
     </div>
   </div>
 </section>
@@ -274,25 +296,25 @@
   <div class="wrap">
     <div class="precos__top">
       <div>
-        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Pricing'>Preço</p>
-        <h2 class="section-title reveal" data-lines data-en='One plan, <span class="gword">no surprises.</span>'>Um plano, <span class="gword">sem surpresas.</span></h2>
+        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Pricing' data-es='Precios'>Preço</p>
+        <h2 class="section-title reveal" data-lines data-en='One plan, <span class="gword">no surprises.</span>' data-es='Un plan, <span class="gword">sin sorpresas.</span>'>Um plano, <span class="gword">sem surpresas.</span></h2>
       </div>
-      <p class="precos__lead reveal" data-en='You only pay the plugin subscription. Rendering runs on your own API key, so you manage it and decide exactly how much to spend.'>Você paga apenas a assinatura do plugin. As renderizações rodam na sua própria chave de API, então você gerencia e decide exatamente quanto gastar.</p>
+      <p class="precos__lead reveal" data-en='You only pay the plugin subscription. Rendering runs on your own API key, so you manage it and decide exactly how much to spend.' data-es='Solo pagas la suscripción del plugin. El renderizado corre con tu propia clave de API, así que tú la gestionas y decides exactamente cuánto gastar.'>Você paga apenas a assinatura do plugin. As renderizações rodam na sua própria chave de API, então você gerencia e decide exatamente quanto gastar.</p>
     </div>
     <div class="plans plans--single">
       <div class="plan plan--solo reveal">
-        <div class="plan__name" data-en='Annual plan'>Plano Anual</div>
-        <div class="plan__price"><span class="cur">R$</span>499,99<span class="per" data-en='/year'>/ano</span></div>
-        <div class="plan__note" data-en='plugin subscription only — no charge on renders'>só a assinatura do plugin — sem cobrança nos renders</div>
+        <div class="plan__name" data-en='Annual plan' data-es='Plan Anual'>Plano Anual</div>
+        <div class="plan__price"><span class="cur">R$</span>499,99<span class="per" data-en='/year' data-es='/año'>/ano</span></div>
+        <div class="plan__note" data-en='plugin subscription only — no charge on renders' data-es='solo la suscripción del plugin — sin cobro por render'>só a assinatura do plugin — sem cobrança nos renders</div>
         <ul>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='Rendering in up to 4K'>Renderização em até 4K</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='One active machine at a time'>Uma máquina ativa por vez</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='Use your own API key and control the spend'>Use sua própria chave de API e controle o gasto</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='Rendering in up to 4K' data-es='Renderizado en hasta 4K'>Renderização em até 4K</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='One active machine at a time' data-es='Una máquina activa a la vez'>Uma máquina ativa por vez</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='Use your own API key and control the spend' data-es='Usa tu propia clave de API y controla el gasto'>Use sua própria chave de API e controle o gasto</span></li>
         </ul>
-        <a href="#" class="btn btn-primary magnetic focusable" data-en='Subscribe to Lumo'>Assinar o Lumo</a>
+        <a href="#" class="btn btn-primary magnetic focusable" data-en='Subscribe to Lumo' data-es='Suscribirse a Lumo'>Assinar o Lumo</a>
       </div>
     </div>
-    <p class="precos__foot reveal" data-en='Illustrative price, being finalized for launch. One license active at a time.'>Valor ilustrativo, em definição para o lançamento. Uma licença ativa por vez.</p>
+    <p class="precos__foot reveal" data-en='Illustrative price, being finalized for launch. One license active at a time.' data-es='Valor ilustrativo, en definición para el lanzamiento. Una licencia activa a la vez.'>Valor ilustrativo, em definição para o lançamento. Uma licença ativa por vez.</p>
   </div>
 </section>
 
@@ -300,33 +322,33 @@
 <section class="section faq" id="faq">
   <div class="wrap">
     <div>
-      <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Questions'>Dúvidas</p>
-      <h2 class="section-title reveal" data-lines data-en='Before you <span class="gword">install.</span>'>Antes de <span class="gword">instalar.</span></h2>
+      <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Questions' data-es='Dudas'>Dúvidas</p>
+      <h2 class="section-title reveal" data-lines data-en='Before you <span class="gword">install.</span>' data-es='Antes de <span class="gword">instalar.</span>'>Antes de <span class="gword">instalar.</span></h2>
     </div>
     <div class="acc" id="acc">
       <div class="acc__item">
-        <button class="acc__q focusable" aria-expanded="false" data-en='Which SketchUp version does it work on?<span class="acc__ic"></span>'>Funciona em qual versão do SketchUp?<span class="acc__ic"></span></button>
-        <div class="acc__a"><div class="acc__a-inner" data-en='It runs on SketchUp Pro 2021 and up, on Windows and macOS. Installation is the same .rbz file through the Extension Manager.'>Roda no SketchUp Pro 2021 em diante, no Windows e no macOS. A instalação é o mesmo arquivo .rbz pelo Extension Manager.</div></div>
+        <button class="acc__q focusable" aria-expanded="false" data-en='Which SketchUp version does it work on?<span class="acc__ic"></span>' data-es='¿En qué versión de SketchUp funciona?<span class="acc__ic"></span>'>Funciona em qual versão do SketchUp?<span class="acc__ic"></span></button>
+        <div class="acc__a"><div class="acc__a-inner" data-en='It runs on SketchUp Pro 2021 and up, on Windows and macOS. Installation is the same .rbz file through the Extension Manager.' data-es='Funciona en SketchUp Pro 2021 en adelante, en Windows y macOS. La instalación es el mismo archivo .rbz por el Extension Manager.'>Roda no SketchUp Pro 2021 em diante, no Windows e no macOS. A instalação é o mesmo arquivo .rbz pelo Extension Manager.</div></div>
       </div>
       <div class="acc__item">
-        <button class="acc__q focusable" aria-expanded="false" data-en='Do I need a good graphics card?<span class="acc__ic"></span>'>Preciso de placa de vídeo boa?<span class="acc__ic"></span></button>
-        <div class="acc__a"><div class="acc__a-inner" data-en='No. The heavy processing happens in the cloud, so a student laptop delivers the same result as a workstation. You just need an internet connection.'>Não. O processamento pesado acontece na nuvem, então um notebook de estudante entrega o mesmo resultado de uma workstation. Você só precisa de conexão com a internet.</div></div>
+        <button class="acc__q focusable" aria-expanded="false" data-en='Do I need a good graphics card?<span class="acc__ic"></span>' data-es='¿Necesito una buena tarjeta gráfica?<span class="acc__ic"></span>'>Preciso de placa de vídeo boa?<span class="acc__ic"></span></button>
+        <div class="acc__a"><div class="acc__a-inner" data-en='No. The heavy processing happens in the cloud, so a student laptop delivers the same result as a workstation. You just need an internet connection.' data-es='No. El procesamiento pesado ocurre en la nube, así que un portátil de estudiante entrega el mismo resultado que una workstation. Solo necesitas conexión a internet.'>Não. O processamento pesado acontece na nuvem, então um notebook de estudante entrega o mesmo resultado de uma workstation. Você só precisa de conexão com a internet.</div></div>
       </div>
       <div class="acc__item">
-        <button class="acc__q focusable" aria-expanded="false" data-en='Does the render match my model or does the AI make things up?<span class="acc__ic"></span>'>O render sai igual ao meu modelo ou a IA inventa coisa?<span class="acc__ic"></span></button>
-        <div class="acc__a"><div class="acc__a-inner" data-en='The geometry and framing are faithfully preserved — the AI works on your scene, not a loose interpretation. Your textures guide the materials and colors of the result.'>A geometria e o enquadramento são preservados fielmente — a IA trabalha sobre a sua cena, não sobre uma interpretação livre. Suas texturas guiam materiais e cores do resultado.</div></div>
+        <button class="acc__q focusable" aria-expanded="false" data-en='Does the render match my model or does the AI make things up?<span class="acc__ic"></span>' data-es='¿El render sale igual a mi modelo o la IA inventa cosas?<span class="acc__ic"></span>'>O render sai igual ao meu modelo ou a IA inventa coisa?<span class="acc__ic"></span></button>
+        <div class="acc__a"><div class="acc__a-inner" data-en='The geometry and framing are faithfully preserved — the AI works on your scene, not a loose interpretation. Your textures guide the materials and colors of the result.' data-es='La geometría y el encuadre se preservan fielmente — la IA trabaja sobre tu escena, no sobre una interpretación libre. Tus texturas guían los materiales y colores del resultado.'>A geometria e o enquadramento são preservados fielmente — a IA trabalha sobre a sua cena, não sobre uma interpretação livre. Suas texturas guiam materiais e cores do resultado.</div></div>
       </div>
       <div class="acc__item">
-        <button class="acc__q focusable" aria-expanded="false" data-en='Can I use the images in a commercial project?<span class="acc__ic"></span>'>Posso usar as imagens em projeto comercial?<span class="acc__ic"></span></button>
-        <div class="acc__a"><div class="acc__a-inner" data-en='Yes, from the Professional plan on, images are cleared for commercial use, with no watermark. The free plan is for study and personal use.'>Sim, a partir do plano Profissional as imagens são liberadas para uso comercial, sem marca d'água. O plano gratuito é para estudo e uso pessoal.</div></div>
+        <button class="acc__q focusable" aria-expanded="false" data-en='Can I use the images in a commercial project?<span class="acc__ic"></span>' data-es='¿Puedo usar las imágenes en un proyecto comercial?<span class="acc__ic"></span>'>Posso usar as imagens em projeto comercial?<span class="acc__ic"></span></button>
+        <div class="acc__a"><div class="acc__a-inner" data-en='Yes. The images you generate are yours and can be used in commercial projects, with no watermark.' data-es='Sí. Las imágenes que generas son tuyas y puedes usarlas en proyectos comerciales, sin marca de agua.'>Sim. As imagens que você gera são suas e podem ser usadas em projeto comercial, sem marca d&#39;água.</div></div>
       </div>
       <div class="acc__item">
-        <button class="acc__q focusable" aria-expanded="false" data-en='Does it work on SketchUp Web?<span class="acc__ic"></span>'>Funciona no SketchUp Web?<span class="acc__ic"></span></button>
-        <div class="acc__a"><div class="acc__a-inner" data-en='For now Lumo is a plugin for the desktop version. SketchUp Web support is on our roadmap — join the list to be notified.'>Por enquanto o Lumo é um plugin para a versão desktop. O suporte ao SketchUp Web está no nosso roteiro — entre na lista para ser avisado.</div></div>
+        <button class="acc__q focusable" aria-expanded="false" data-en='Does it work on SketchUp Web?<span class="acc__ic"></span>' data-es='¿Funciona en SketchUp Web?<span class="acc__ic"></span>'>Funciona no SketchUp Web?<span class="acc__ic"></span></button>
+        <div class="acc__a"><div class="acc__a-inner" data-en='For now Lumo is a plugin for the desktop version. SketchUp Web support is on our roadmap — join the list to be notified.' data-es='Por ahora Lumo es un plugin para la versión de escritorio. El soporte para SketchUp Web está en nuestra hoja de ruta — únete a la lista para recibir aviso.'>Por enquanto o Lumo é um plugin para a versão desktop. O suporte ao SketchUp Web está no nosso roteiro — entre na lista para ser avisado.</div></div>
       </div>
       <div class="acc__item">
-        <button class="acc__q focusable" aria-expanded="false" data-en='How am I charged for renders?<span class="acc__ic"></span>'>Como funciona a cobrança dos renders?<span class="acc__ic"></span></button>
-        <div class="acc__a"><div class="acc__a-inner" data-en='We only charge the plugin subscription. The rendering itself runs on your own API key, which you set up and manage — so you control exactly how much you spend and never depend on our credits.'>Nós cobramos apenas a assinatura do plugin. A renderização em si roda na sua própria chave de API, que você configura e gerencia — então você controla exatamente quanto gasta e nunca depende de créditos nossos.</div></div>
+        <button class="acc__q focusable" aria-expanded="false" data-en='How am I charged for renders?<span class="acc__ic"></span>' data-es='¿Cómo funciona el cobro de los renders?<span class="acc__ic"></span>'>Como funciona a cobrança dos renders?<span class="acc__ic"></span></button>
+        <div class="acc__a"><div class="acc__a-inner" data-en='We only charge the plugin subscription. The rendering itself runs on your own API key, which you set up and manage — so you control exactly how much you spend and never depend on our credits.' data-es='Solo cobramos la suscripción del plugin. El renderizado en sí corre con tu propia clave de API, que tú configuras y gestionas — así controlas exactamente cuánto gastas y nunca dependes de créditos nuestros.'>Nós cobramos apenas a assinatura do plugin. A renderização em si roda na sua própria chave de API, que você configura e gerencia — então você controla exatamente quanto gasta e nunca depende de créditos nossos.</div></div>
       </div>
     </div>
   </div>
@@ -336,10 +358,10 @@
 <section class="cta">
   <div class="cta__glow" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="eyebrow reveal" style="margin-bottom:8px" data-en='Start today'>Comece hoje</p>
-    <h2 class="reveal" data-lines data-en='More light. More time. <span class="gword">More creation.</span>'>Mais luz. Mais tempo. <span class="gword">Mais criação.</span></h2>
-    <p class="reveal" data-en='Install Lumo and render your first scene today. No card, no file export, no waiting.'>Instale o Lumo e renderize sua primeira cena hoje. Sem cartão, sem exportar arquivo, sem esperar.</p>
-    <a href="#" class="btn btn-primary magnetic focusable reveal"><span data-en='Download Lumo free'>Baixar o Lumo grátis</span>
+    <p class="eyebrow reveal" style="margin-bottom:8px" data-en='Start today' data-es='Empieza hoy'>Comece hoje</p>
+    <h2 class="reveal" data-lines data-en='More light. More time. <span class="gword">More creation.</span>' data-es='Más luz. Más tiempo. <span class="gword">Más creación.</span>'>Mais luz. Mais tempo. <span class="gword">Mais criação.</span></h2>
+    <p class="reveal" data-en='Install Lumo and render your first scene today. No card, no file export, no waiting.' data-es='Instala Lumo y renderiza tu primera escena hoy. Sin tarjeta, sin exportar archivos, sin esperar.'>Instale o Lumo e renderize sua primeira cena hoje. Sem cartão, sem exportar arquivo, sem esperar.</p>
+    <a href="#" class="btn btn-primary magnetic focusable reveal"><span data-en='Download Lumo free' data-es='Descargar Lumo gratis'>Baixar o Lumo grátis</span>
       <svg viewBox="0 0 24 24"><path d="M12 4v11M6 11l6 6 6-6M5 20h14"/></svg>
     </a>
   </div>
@@ -355,14 +377,28 @@
       Lumo
     </a>
     <nav aria-label="Rodapé">
-      <a href="#recursos" data-en='Features'>Recursos</a>
-      <a href="#precos" data-en='Pricing'>Preços</a>
-      <a href="#faq" data-en='FAQ'>FAQ</a>
-      <a href="#" data-en='Support'>Suporte</a>
+      <a href="#recursos" data-en='Features' data-es='Funciones'>Recursos</a>
+      <a href="#precos" data-en='Pricing' data-es='Precios'>Preços</a>
+      <a href="#faq" data-en='FAQ' data-es='FAQ'>FAQ</a>
+      <a href="#" data-en='Support' data-es='Soporte'>Suporte</a>
     </nav>
-    <small data-en='© 2026 Lumo — AI rendering for SketchUp'>© 2026 Lumo — Renderização por IA para SketchUp</small>
+    <small data-en='© 2026 Lumo — AI rendering for SketchUp' data-es='© 2026 Lumo — Renderizado por IA para SketchUp'>© 2026 Lumo — Renderização por IA para SketchUp</small>
   </div>
 </footer>
+
+<!-- ============================ BANNER DE COOKIES ============================ -->
+<div class="cookie" id="cookieBar" role="dialog" aria-modal="false" aria-labelledby="cookieTitle">
+  <div class="cookie__inner">
+    <div class="cookie__txt">
+      <strong id="cookieTitle" data-en='We use cookies' data-es='Usamos cookies'>Usamos cookies</strong>
+      <p data-en='Essential cookies keep the site working. Optional ones help us understand how the page is used so we can improve it. You choose.' data-es='Las cookies esenciales mantienen el sitio funcionando. Las opcionales nos ayudan a entender cómo se usa la página para mejorarla. Tú eliges.'>Os cookies essenciais mantêm o site funcionando. Os opcionais nos ajudam a entender como a página é usada para melhorá-la. Você escolhe.</p>
+    </div>
+    <div class="cookie__acts">
+      <button class="btn btn-ghost focusable" id="cookieReject" data-en='Essential only' data-es='Solo esenciales'>Apenas essenciais</button>
+      <button class="btn btn-primary focusable" id="cookieAccept" data-en='Accept all' data-es='Aceptar todas'>Aceitar todos</button>
+    </div>
+  </div>
+</div>
 
 <!-- ============================ LIBS ============================ -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
