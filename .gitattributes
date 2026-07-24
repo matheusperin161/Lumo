@@ -1,0 +1,14 @@
+# Scripts e configs do servidor precisam de quebra de linha LF (Unix).
+# Sem isso, um arquivo salvo no Windows quebra no Linux com "bad interpreter: ^M".
+*.sh   text eol=lf
+*.conf text eol=lf
+
+# Web
+*.html text
+*.css  text
+*.js   text
+
+# Binários — não converter
+*.png  binary
+*.jpg  binary
+*.ico  binary
