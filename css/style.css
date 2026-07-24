@@ -1484,6 +1484,11 @@ body.menu-open {
   .hero__side {
     padding-bottom: 0;
   }
+  /* no celular o texto do hero ocupa quase toda a altura e o indicador
+     de rolagem acabava sobrepondo os botoes — em tela de toque ele e dispensavel */
+  .hero__scroll {
+    display: none;
+  }
   .problema .wrap,
   .rec__head,
   .faq .wrap,
