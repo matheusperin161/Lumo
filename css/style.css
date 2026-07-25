@@ -828,37 +828,9 @@ body.menu-open {
 }
 .card--tall {
   grid-column: span 4;
-  min-height: 478px;
-  justify-content: flex-end;
 }
 .card--feat {
   grid-column: span 8;
-}
-.card__media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.5;
-}
-.card__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.card__media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(13, 17, 23, 0.2),
-    rgba(13, 17, 23, 0.95)
-  );
-}
-.card--tall > *,
-.card--feat > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* ============================================================
@@ -994,7 +966,7 @@ body.menu-open {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--aresta);
-  aspect-ratio: 4/5;
+  aspect-ratio: 4/3;
 }
 .preset img {
   width: 100%;
@@ -1025,23 +997,77 @@ body.menu-open {
   text-transform: uppercase;
   color: var(--tinta-fraca);
 }
-.f-photo {
-  filter: none;
+/* ---------- Moods disponíveis (chips) ---------- */
+.moods {
+  margin-top: 22px;
+  border: 1px solid var(--aresta);
+  border-radius: 16px;
+  background: var(--carvao-alto);
+  padding: 26px 28px 30px;
 }
-.f-noite {
-  filter: brightness(0.6) contrast(1.15) saturate(1.2) hue-rotate(-8deg);
+.moods__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 18px;
+  margin-bottom: 20px;
 }
-.f-aquarela {
-  filter: saturate(1.4) contrast(0.82) brightness(1.12) blur(0.4px);
+.moods__label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--tinta);
 }
-.f-croqui {
-  filter: grayscale(1) contrast(1.4) brightness(1.15);
+.moods__hint {
+  font-size: 14px;
+  color: var(--tinta-fraca);
+  margin: 0;
+  flex: 1 1 260px;
+  min-width: 220px;
 }
-.f-golden {
-  filter: sepia(0.45) saturate(1.5) brightness(1.05) hue-rotate(-12deg);
+.moods__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-.f-maquete {
-  filter: saturate(0.5) brightness(1.1) contrast(0.95);
+.mood {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 11px 16px;
+  border: 1px solid var(--aresta-forte);
+  border-radius: 999px;
+  color: var(--tinta);
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    border-color 0.25s var(--ease),
+    background 0.25s var(--ease),
+    transform 0.25s var(--ease);
+  cursor: default;
+}
+.mood:hover {
+  border-color: var(--violeta);
+  background: var(--ghost-hover);
+  transform: translateY(-2px);
+}
+.mood--on {
+  border-color: transparent;
+  color: #fff;
+  background: var(--grad);
+}
+.mood--on:hover {
+  border-color: transparent;
+  background: var(--grad);
+}
+.mood--custom {
+  border-style: dashed;
+  color: var(--tinta-fraca);
+}
+.mood--custom:hover {
+  color: var(--tinta);
+  border-color: var(--violeta);
+  border-style: dashed;
 }
 
 /* ============================================================
@@ -1257,6 +1283,18 @@ body.menu-open {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* Moeda do plano por idioma: PT → R$ · EN/ES → US$ */
+.plan__price--usd {
+  display: none;
+}
+html[lang="en"] .plan__price--brl,
+html[lang="es"] .plan__price--brl {
+  display: none;
+}
+html[lang="en"] .plan__price--usd,
+html[lang="es"] .plan__price--usd {
+  display: inline;
+}
 .plan__note {
   font-size: 12px;
   color: var(--tinta-fraca);
@@ -1296,6 +1334,120 @@ body.menu-open {
   color: var(--tinta-fraca);
   position: relative;
   z-index: 1;
+}
+
+/* ---------- Custo por imagem ---------- */
+.cost {
+  position: relative;
+  z-index: 1;
+  margin-top: 34px;
+  border: 1px solid var(--aresta);
+  border-radius: 18px;
+  background: var(--carvao-alto);
+  padding: 34px 34px 30px;
+}
+.cost__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 12px 40px;
+  align-items: baseline;
+  margin-bottom: 28px;
+}
+.cost__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--tinta);
+}
+.cost__lead {
+  margin: 0;
+  font-size: 15px;
+  color: var(--tinta-fraca);
+}
+.cost__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.cost__card {
+  border: 1px solid var(--aresta-forte);
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.cost__card--hl {
+  border-color: transparent;
+  background:
+    linear-gradient(var(--carvao-alto), var(--carvao-alto)) padding-box,
+    var(--grad) border-box;
+  border: 1px solid transparent;
+}
+.cost__res {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--aresta-forte);
+  color: var(--tinta-fraca);
+  margin-bottom: 16px;
+}
+.cost__card--hl .cost__res {
+  border-color: transparent;
+  color: #fff;
+  background: var(--grad);
+}
+.cost__price {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.cost__per {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--tinta-fraca);
+}
+/* Moeda por idioma: PT → R$ · EN/ES → US$ */
+.cost__price--usd {
+  display: none;
+}
+html[lang="en"] .cost__price--brl,
+html[lang="es"] .cost__price--brl {
+  display: none;
+}
+html[lang="en"] .cost__price--usd,
+html[lang="es"] .cost__price--usd {
+  display: block;
+}
+.cost__detail {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--aresta);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--tinta-fraca);
+}
+.cost__note {
+  margin: 22px 0 0;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--tinta-fraca);
+}
+@media (max-width: 760px) {
+  .cost {
+    padding: 26px 20px 24px;
+  }
+  .cost__head {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .cost__cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================================
@@ -1522,10 +1674,13 @@ body.menu-open {
     padding: 20px 0 40px;
   }
   .estilos__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
   .estilos__grid .preset {
     grid-column: auto !important;
+  }
+  .moods {
+    padding: 22px 18px 24px;
   }
   .plans {
     grid-template-columns: 1fr;
@@ -1968,16 +2123,6 @@ body.menu-open {
   color: #fff;
 }
 
-/* Cards com imagem de fundo -> texto claro */
-:root[data-theme="light"] .card--feat h3,
-:root[data-theme="light"] .card--tall h3 {
-  color: #fff;
-}
-:root[data-theme="light"] .card--feat p,
-:root[data-theme="light"] .card--tall p {
-  color: rgba(255, 255, 255, 0.7);
-}
-
 /* Contadores e legendas sobre imagem -> texto claro */
 :root[data-theme="light"] .steps__counter {
   color: rgba(255, 255, 255, 0.6);
@@ -1990,4 +2135,88 @@ body.menu-open {
 }
 :root[data-theme="light"] .preset figcaption em {
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   WHATSAPP (botão flutuante + CTA)
+============================================================ */
+.wa-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 9985;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #25d366;
+  box-shadow:
+    0 10px 24px rgba(37, 211, 102, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+.wa-float:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow:
+    0 16px 32px rgba(37, 211, 102, 0.5),
+    0 4px 10px rgba(0, 0, 0, 0.35);
+}
+.wa-float svg {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  z-index: 1;
+}
+.wa-float__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25d366;
+  z-index: 0;
+  animation: waPulse 2.4s ease-out infinite;
+}
+@keyframes waPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70%,
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-float__pulse {
+    animation: none;
+    display: none;
+  }
+}
+.wa-cta {
+  margin-top: 28px;
+  gap: 10px;
+}
+.wa-cta svg {
+  width: 20px;
+  height: 20px;
+  color: #25d366;
+  fill: currentColor;
+  stroke: none;
+}
+@media (max-width: 760px) {
+  .wa-float {
+    right: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+  }
+  .wa-float svg {
+    width: 28px;
+    height: 28px;
+  }
 }

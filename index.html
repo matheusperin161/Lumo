@@ -183,13 +183,11 @@
     </div>
     <div class="rec__grid">
       <article class="card card--feat reveal tilt" tabindex="0">
-        <div class="card__media"><img src="img/render-a.webp" alt="" loading="lazy"></div>
         <svg class="card__ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14"/><path d="M3 9h18M8 4v5"/><circle cx="16" cy="13.5" r="2"/></svg>
         <h3 data-en='Render without leaving SketchUp' data-es='Renderiza sin salir de SketchUp'>Renderiza sem sair do SketchUp</h3>
         <p data-en='The plugin reads the active viewport. The camera you framed is the render camera — no exporting anything.' data-es='El plugin lee la viewport activa. La cámara que encuadraste es la cámara del render — sin exportar nada.'>O plugin lê a viewport ativa. A câmera que você enquadrou é a câmera do render — sem exportar nada.</p>
       </article>
       <article class="card card--tall reveal tilt" tabindex="0">
-        <div class="card__media"><img src="img/render-c.webp" alt="" loading="lazy"></div>
         <svg class="card__ic" viewBox="0 0 24 24"><path d="M4 20l4-9 3 5 3-7 6 11z"/><circle cx="8" cy="6" r="2"/></svg>
         <h3 data-en='Styles beyond photorealism' data-es='Estilos más allá del fotorrealismo'>Estilos além do fotorrealismo</h3>
         <p data-en='Sketch, watercolor, physical model and humanized plan — the same model, another language.' data-es='Boceto, acuarela, maqueta física y plano humanizado — el mismo modelo, otro lenguaje.'>Croqui, aquarela, maquete física e planta humanizada — o mesmo modelo, outra linguagem.</p>
@@ -347,15 +345,32 @@
         <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Styles' data-es='Estilos'>Estilos</p>
         <h2 class="section-title reveal" data-lines data-en='One scene, many <span class="gword">languages.</span>' data-es='Una escena, varios <span class="gword">lenguajes.</span>'>Uma cena, várias <span class="gword">linguagens.</span></h2>
       </div>
-      <p class="reveal" data-en='From photorealism to presentation sketch. Switch aesthetics without touching the model — ideal for telling the same story across different project phases.' data-es='Del fotorrealismo al boceto de presentación. Cambia de estética sin tocar el modelo — ideal para contar la misma historia en fases distintas del proyecto.'>Do fotorrealismo ao croqui de apresentação. Troque de estética sem tocar no modelo — ideal para contar a mesma história em fases diferentes do projeto.</p>
+      <p class="reveal" data-en='The same scene takes on many lighting moods. Pick a ready-made preset or just describe your own — the AI handles the time of day and the atmosphere.' data-es='La misma escena adopta varios climas de luz. Elige un preset listo o simplemente describe el tuyo — la IA se encarga de la hora del día y la atmósfera.'>A mesma cena ganha vários climas de luz. Escolha um preset pronto ou apenas descreva o seu — a IA cuida da hora do dia e da atmosfera.</p>
     </div>
     <div class="estilos__grid">
-      <figure class="preset reveal"><img class="f-photo" src="img/hero-after.webp" alt="Estilo fotorrealista" loading="lazy"><figcaption data-en='Photorealistic <em>01</em>' data-es='Fotorrealista <em>01</em>'>Fotorrealista <em>01</em></figcaption></figure>
-      <figure class="preset reveal"><img class="f-noite" src="img/render-b.webp" alt="Estilo noturno" loading="lazy"><figcaption data-en='Night <em>02</em>' data-es='Nocturno <em>02</em>'>Noturno <em>02</em></figcaption></figure>
-      <figure class="preset reveal"><img class="f-golden" src="img/render-a.webp" alt="Estilo golden hour" loading="lazy"><figcaption data-en='Golden hour <em>03</em>' data-es='Golden hour <em>03</em>'>Golden hour <em>03</em></figcaption></figure>
-      <figure class="preset reveal"><img class="f-aquarela" src="img/render-c.webp" alt="Estilo aquarela" loading="lazy"><figcaption data-en='Watercolor <em>04</em>' data-es='Acuarela <em>04</em>'>Aquarela <em>04</em></figcaption></figure>
-      <figure class="preset reveal"><img class="f-croqui" src="img/hero-after.webp" alt="Estilo croqui" loading="lazy"><figcaption data-en='Sketch <em>05</em>' data-es='Boceto <em>05</em>'>Croqui <em>05</em></figcaption></figure>
-      <figure class="preset reveal"><img class="f-maquete" src="img/render-a.webp" alt="Estilo maquete física" loading="lazy"><figcaption data-en='Model <em>06</em>' data-es='Maqueta <em>06</em>'>Maquete <em>06</em></figcaption></figure>
+      <figure class="preset reveal"><img src="img/hero-after.webp" alt="Estilo fotorrealista" loading="lazy"><figcaption data-en='Photorealistic <em>01</em>' data-es='Fotorrealista <em>01</em>'>Fotorrealista <em>01</em></figcaption></figure>
+      <figure class="preset reveal"><img src="img/rendernoite.webp" alt="Estilo noturno" loading="lazy"><figcaption data-en='Night <em>02</em>' data-es='Nocturno <em>02</em>'>Noturno <em>02</em></figcaption></figure>
+      <figure class="preset reveal"><img src="img/rendergolden.webp" alt="Estilo golden hour" loading="lazy"><figcaption data-en='Golden hour <em>03</em>' data-es='Golden hour <em>03</em>'>Golden hour <em>03</em></figcaption></figure>
+    </div>
+
+    <div class="moods reveal">
+      <div class="moods__head">
+        <span class="moods__label" data-en='Scene mood' data-es='Ambiente de la escena'>Mood da cena</span>
+        <p class="moods__hint" data-en='These are the ready-made moods. Want another? Just describe it in the plugin&rsquo;s text box.' data-es='Estos son los ambientes listos. ¿Quieres otro? Solo descríbelo en la caja de texto del plugin.'>Esses são os moods prontos. Quer outro? É só descrever na caixa de texto do plugin.</p>
+      </div>
+      <div class="moods__chips">
+        <span class="mood" data-en='Diffuse light' data-es='Luz difusa'>Luz difusa</span>
+        <span class="mood" data-en='Hard light' data-es='Luz marcada'>Luz marcada</span>
+        <span class="mood mood--on">Golden Hour</span>
+        <span class="mood">Blue Hour</span>
+        <span class="mood" data-en='Midday' data-es='Mediodía'>Meio-dia</span>
+        <span class="mood" data-en='Brazilian sky' data-es='Cielo brasileño'>Céu Brasileiro</span>
+        <span class="mood" data-en='Night' data-es='Noche'>Noite</span>
+        <span class="mood">Overcast</span>
+        <span class="mood" data-en='End of day' data-es='Fin del día'>Fim do dia</span>
+        <span class="mood" data-en='No natural light' data-es='Sin luz natural'>Sem luz natural</span>
+        <span class="mood mood--custom" data-en='+ Describe my own' data-es='+ Describir el mío'>+ Descrever o meu</span>
+      </div>
     </div>
   </div>
 </section>
@@ -374,7 +389,7 @@
     <div class="plans plans--single">
       <div class="plan plan--solo reveal">
         <div class="plan__name" data-en='Annual plan' data-es='Plan Anual'>Plano Anual</div>
-        <div class="plan__price"><span class="cur">R$</span>299,99<span class="per" data-en='/year' data-es='/año'>/ano</span></div>
+        <div class="plan__price"><span class="plan__price--brl"><span class="cur">R$</span>299,99</span><span class="plan__price--usd"><span class="cur">US$</span>54.99</span><span class="per" data-en='/year' data-es='/año'>/ano</span></div>
         <div class="plan__note" data-en='plugin subscription only — no charge on renders' data-es='solo la suscripción del plugin — sin cobro por render'>só a assinatura do plugin — sem cobrança nos renders</div>
         <ul>
           <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='Rendering in up to 4K' data-es='Renderizado en hasta 4K'>Renderização em até 4K</span></li>
@@ -384,7 +399,26 @@
         <a href="#" class="btn btn-primary magnetic focusable" data-en='Subscribe to Lumo' data-es='Suscribirse a Lumo'>Assinar o Lumo</a>
       </div>
     </div>
-    <p class="precos__foot reveal" data-en='Illustrative price, being finalized for launch. One license active at a time.' data-es='Valor ilustrativo, en definición para el lanzamiento. Una licencia activa a la vez.'>Valor ilustrativo, em definição para o lançamento. Uma licença ativa por vez.</p>
+    <div class="cost reveal">
+      <div class="cost__head">
+        <span class="cost__eyebrow" data-en='Cost per image' data-es='Costo por imagen'>Custo por imagem</span>
+        <p class="cost__lead" data-en='Every render is billed straight to your own API key — we never touch that amount. You pay the provider only for what you generate, down to the cent, and can stop whenever you want.' data-es='Cada render se cobra directo en tu propia clave de API — nosotros nunca tocamos ese valor. Le pagas al proveedor solo por lo que generas, al centavo, y puedes parar cuando quieras.'>Cada render é cobrado direto na sua própria chave de API — nós nunca tocamos nesse valor. Você paga o provedor só pelo que gerar, no centavo, e pode parar quando quiser.</p>
+      </div>
+      <div class="cost__cards">
+        <div class="cost__card">
+          <span class="cost__res">2K</span>
+          <div class="cost__price cost__price--brl">R$ 0,75 – 0,82</div>
+          <div class="cost__price cost__price--usd">US$ 0.14 – 0.15</div>
+          <div class="cost__per" data-en='per image' data-es='por imagen'>por imagem</div>
+        </div>
+        <div class="cost__card cost__card--hl">
+          <span class="cost__res">4K</span>
+          <div class="cost__price cost__price--brl">R$ 1,35 – 1,50</div>
+          <div class="cost__price cost__price--usd">US$ 0.25 – 0.28</div>
+          <div class="cost__per" data-en='per image' data-es='por imagen'>por imagem</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -394,6 +428,10 @@
     <div>
       <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Questions' data-es='Dudas'>Dúvidas</p>
       <h2 class="section-title reveal" data-lines data-en='Before you <span class="gword">install.</span>' data-es='Antes de <span class="gword">instalar.</span>'>Antes de <span class="gword">instalar.</span></h2>
+      <a class="btn btn-ghost wa-cta reveal focusable" href="https://wa.me/5549988924465?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20Lumo." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.02zM12.04 20.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 5.82 2.42 8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.24.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.24-.85.83-.85 2.03 0 1.19.87 2.35.99 2.51.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+        <span data-en='Talk to us on WhatsApp' data-es='Habla con nosotros por WhatsApp'>Falar no WhatsApp</span>
+      </a>
     </div>
     <div class="acc" id="acc">
       <div class="acc__item">
@@ -455,6 +493,12 @@
     <small data-en='© 2026 Lumo — AI rendering for SketchUp' data-es='© 2026 Lumo — Renderizado por IA para SketchUp'>© 2026 Lumo — Renderização por IA para SketchUp</small>
   </div>
 </footer>
+
+<!-- ============================ WHATSAPP FLUTUANTE ============================ -->
+<a class="wa-float focusable" href="https://wa.me/5549988924465?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20Lumo." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7.02zM12.04 20.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 5.82 2.42 8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.24.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.24-.85.83-.85 2.03 0 1.19.87 2.35.99 2.51.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+  <span class="wa-float__pulse" aria-hidden="true"></span>
+</a>
 
 <!-- ============================ BANNER DE COOKIES ============================ -->
 <div class="cookie" id="cookieBar" role="dialog" aria-modal="false" aria-labelledby="cookieTitle">
