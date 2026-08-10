@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /deploy/
+Disallow: /config/
+Disallow: /api/
+
+Sitemap: https://lumo-ia.com/sitemap.xml
