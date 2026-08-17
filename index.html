@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lumo","url":"https://lumo-ia.com/","image":"https://lumo-ia.com/img/hero-after.webp","applicationCategory":"DesignApplication","operatingSystem":"SketchUp","inLanguage":["pt-BR","en","es"],"description":"Plugin de renderização por IA para o SketchUp. Gera imagens fotorrealistas direto na viewport, sem exportar arquivo.","offers":{"@type":"Offer","price":"299.99","priceCurrency":"BRL","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lumo","url":"https://lumo-ia.com/","image":"https://lumo-ia.com/img/hero-after.webp","applicationCategory":"DesignApplication","operatingSystem":"SketchUp","inLanguage":["pt-BR","en","es"],"description":"Plugin de renderização por IA para o SketchUp. Gera imagens fotorrealistas direto na viewport, sem exportar arquivo.","offers":{"@type":"AggregateOffer","lowPrice":"24.90","highPrice":"399.90","priceCurrency":"BRL","offerCount":5,"url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock","offers":[{"@type":"Offer","name":"Mini","price":"24.90","priceCurrency":"BRL","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Basic","price":"59.90","priceCurrency":"BRL","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Plus","price":"109.90","priceCurrency":"BRL","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Pro","price":"209.90","priceCurrency":"BRL","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Mega","price":"399.90","priceCurrency":"BRL","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"}]}}
 </script>
 <link rel="stylesheet" href="css/style.css">
 
@@ -391,43 +391,86 @@
     <div class="precos__top">
       <div>
         <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Pricing' data-es='Precios'>Preço</p>
-        <h2 class="section-title reveal" data-lines data-en='One plan, <span class="gword">no surprises.</span>' data-es='Un plan, <span class="gword">sin sorpresas.</span>'>Um plano, <span class="gword">sem surpresas.</span></h2>
+        <h2 class="section-title reveal" data-lines data-en='Choose your <span class="gword">lumos.</span>' data-es='Elige tus <span class="gword">lumos.</span>'>Escolha seus <span class="gword">lumos.</span></h2>
       </div>
-      <p class="precos__lead reveal" data-en='You only pay the plugin subscription. Rendering runs on your own API key, so you manage it and decide exactly how much to spend.' data-es='Solo pagas la suscripción del plugin. El renderizado corre con tu propia clave de API, así que tú la gestionas y decides exactamente cuánto gastar.'>Você paga apenas a assinatura do plugin. As renderizações rodam na sua própria chave de API, então você gerencia e decide exatamente quanto gastar.</p>
+      <p class="precos__lead reveal" data-en='Every render uses lumos. Pick the pack that matches your pace, it renews every month and there is nothing else to pay — no per-image fee, no surprise on the invoice.' data-es='Cada render consume lumos. Elige el paquete que acompaña tu ritmo, se renueva cada mes y no pagas nada más — sin tarifa por imagen, sin sorpresas en la factura.'>Cada render consome lumos. Escolha o pacote que acompanha o seu ritmo, ele renova todo mês e não há mais nada a pagar — sem taxa por imagem, sem surpresa na fatura.</p>
     </div>
-    <div class="plans plans--single">
-      <div class="plan plan--solo reveal">
-        <div class="plan__name" data-en='Annual plan' data-es='Plan Anual'>Plano Anual</div>
-        <div class="plan__price"><span class="plan__price--brl"><span class="cur">R$</span>299,99</span><span class="plan__price--usd"><span class="cur">US$</span>54.99</span><span class="per" data-en='/year' data-es='/año'>/ano</span></div>
-        <div class="plan__note" data-en='plugin subscription only — no charge on renders' data-es='solo la suscripción del plugin — sin cobro por render'>só a assinatura do plugin — sem cobrança nos renders</div>
-        <ul>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='Rendering in up to 4K' data-es='Renderizado en hasta 4K'>Renderização em até 4K</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='One active machine at a time' data-es='Una máquina activa a la vez'>Uma máquina ativa por vez</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span data-en='Use your own API key and control the spend' data-es='Usa tu propia clave de API y controla el gasto'>Use sua própria chave de API e controle o gasto</span></li>
-        </ul>
-        <a href="#" class="btn btn-primary magnetic focusable" data-en='Subscribe to Lumo' data-es='Suscribirse a Lumo'>Assinar o Lumo</a>
+    <div class="plans plans--tokens">
+
+      <div class="tplan reveal">
+        <div class="tplan__name">Mini</div>
+        <div class="tplan__tokens"><b>30</b> <span data-en='lumos / month' data-es='lumos / mes'>lumos / mês</span></div>
+        <div class="tplan__price"><span class="plan__price--brl"><span class="cur">R$</span>24,90</span><span class="plan__price--usd"><span class="cur">US$</span>4.99</span><span class="per" data-en='/mo' data-es='/mes'>/mês</span></div>
+        <div class="tplan__note" data-en='to try it out without commitment' data-es='para probar sin compromiso'>para experimentar sem compromisso</div>
+        <a href="#" class="btn btn-ghost focusable" data-en='Subscribe' data-es='Suscribirse'>Assinar</a>
       </div>
+
+      <div class="tplan reveal">
+        <div class="tplan__name">Basic</div>
+        <div class="tplan__tokens"><b>75</b> <span data-en='lumos / month' data-es='lumos / mes'>lumos / mês</span></div>
+        <div class="tplan__price"><span class="plan__price--brl"><span class="cur">R$</span>59,90</span><span class="plan__price--usd"><span class="cur">US$</span>10.99</span><span class="per" data-en='/mo' data-es='/mes'>/mês</span></div>
+        <div class="tplan__note"><span class="tplan__save" data-en='save 4%' data-es='ahorra 4%'>economize 4%</span></div>
+        <a href="#" class="btn btn-ghost focusable" data-en='Subscribe' data-es='Suscribirse'>Assinar</a>
+      </div>
+
+      <div class="tplan tplan--hl reveal">
+        <div class="tplan__badge" data-en='Most popular' data-es='Más elegido'>Mais escolhido</div>
+        <div class="tplan__name">Plus</div>
+        <div class="tplan__tokens"><b>150</b> <span data-en='lumos / month' data-es='lumos / mes'>lumos / mês</span></div>
+        <div class="tplan__price"><span class="plan__price--brl"><span class="cur">R$</span>109,90</span><span class="plan__price--usd"><span class="cur">US$</span>19.99</span><span class="per" data-en='/mo' data-es='/mes'>/mês</span></div>
+        <div class="tplan__note"><span class="tplan__save" data-en='save 12%' data-es='ahorra 12%'>economize 12%</span></div>
+        <a href="#" class="btn btn-primary magnetic focusable" data-en='Subscribe' data-es='Suscribirse'>Assinar</a>
+      </div>
+
+      <div class="tplan reveal">
+        <div class="tplan__name">Pro</div>
+        <div class="tplan__tokens"><b>300</b> <span data-en='lumos / month' data-es='lumos / mes'>lumos / mês</span></div>
+        <div class="tplan__price"><span class="plan__price--brl"><span class="cur">R$</span>209,90</span><span class="plan__price--usd"><span class="cur">US$</span>38.99</span><span class="per" data-en='/mo' data-es='/mes'>/mês</span></div>
+        <div class="tplan__note"><span class="tplan__save" data-en='save 16%' data-es='ahorra 16%'>economize 16%</span></div>
+        <a href="#" class="btn btn-ghost focusable" data-en='Subscribe' data-es='Suscribirse'>Assinar</a>
+      </div>
+
+      <div class="tplan reveal">
+        <div class="tplan__name">Mega</div>
+        <div class="tplan__tokens"><b>600</b> <span data-en='lumos / month' data-es='lumos / mes'>lumos / mês</span></div>
+        <div class="tplan__price"><span class="plan__price--brl"><span class="cur">R$</span>399,90</span><span class="plan__price--usd"><span class="cur">US$</span>73.99</span><span class="per" data-en='/mo' data-es='/mes'>/mês</span></div>
+        <div class="tplan__note"><span class="tplan__save" data-en='save 20%' data-es='ahorra 20%'>economize 20%</span></div>
+        <a href="#" class="btn btn-ghost focusable" data-en='Subscribe' data-es='Suscribirse'>Assinar</a>
+      </div>
+
     </div>
-    <div class="cost reveal">
-      <div class="cost__head">
-        <span class="cost__eyebrow" data-en='Cost per image' data-es='Costo por imagen'>Custo por imagem</span>
-        <p class="cost__lead" data-en='Every render is billed straight to your own API key — we never touch that amount. You pay the provider only for what you generate, down to the cent, and can stop whenever you want.' data-es='Cada render se cobra directo en tu propia clave de API — nosotros nunca tocamos ese valor. Le pagas al proveedor solo por lo que generas, al centavo, y puedes parar cuando quieras.'>Cada render é cobrado direto na sua própria chave de API — nós nunca tocamos nesse valor. Você paga o provedor só pelo que gerar, no centavo, e pode parar quando quiser.</p>
+
+    <div class="consumo reveal">
+      <div class="consumo__head">
+        <span class="consumo__eyebrow" data-en='What each render costs' data-es='Cuánto cuesta cada render'>Quanto custa cada render</span>
+        <p class="consumo__lead" data-en='Every type of output uses a fixed amount of lumos — no variation by scene, no surprise. You see the cost before generating.' data-es='Cada tipo de salida consume una cantidad fija de lumos — sin variación por escena, sin sorpresas. Ves el costo antes de generar.'>Cada tipo de saída consome uma quantidade fixa de lumos — sem variação por cena, sem surpresa. Você vê o custo antes de gerar.</p>
       </div>
-      <div class="cost__cards">
-        <div class="cost__card">
-          <span class="cost__res">2K</span>
-          <div class="cost__price cost__price--brl">R$ 0,75 – 0,82</div>
-          <div class="cost__price cost__price--usd">US$ 0.14 – 0.15</div>
-          <div class="cost__per" data-en='per image' data-es='por imagen'>por imagem</div>
+      <div class="consumo__grid">
+        <div class="consumo__item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15.5l-5-5-6 6"/></svg>
+          <div class="consumo__desc" data-en='Image 2K' data-es='Imagen 2K'>Imagem 2K</div>
+          <div class="consumo__lumos"><b>2</b> <span>lumos</span></div>
         </div>
-        <div class="cost__card cost__card--hl">
-          <span class="cost__res">4K</span>
-          <div class="cost__price cost__price--brl">R$ 1,35 – 1,50</div>
-          <div class="cost__price cost__price--usd">US$ 0.25 – 0.28</div>
-          <div class="cost__per" data-en='per image' data-es='por imagen'>por imagem</div>
+        <div class="consumo__item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15.5l-5-5-6 6"/></svg>
+          <div class="consumo__desc" data-en='Image 4K' data-es='Imagen 4K'>Imagem 4K</div>
+          <div class="consumo__lumos"><b>4</b> <span>lumos</span></div>
+        </div>
+        <div class="consumo__item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="13" height="14" rx="2"/><path d="M21.5 8.2l-6 3.8 6 3.8V8.2z"/></svg>
+          <div class="consumo__desc" data-en='Video 5s' data-es='Video 5s'>Vídeo 5s</div>
+          <div class="consumo__lumos"><b>6</b> <span>lumos</span></div>
+        </div>
+        <div class="consumo__item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="13" height="14" rx="2"/><path d="M21.5 8.2l-6 3.8 6 3.8V8.2z"/></svg>
+          <div class="consumo__desc" data-en='Video 10s' data-es='Video 10s'>Vídeo 10s</div>
+          <div class="consumo__lumos"><b>10</b> <span>lumos</span></div>
         </div>
       </div>
+      <p class="consumo__note" data-en='For reference: the Plus pack (150 lumos) covers 75 images in 2K, or around 37 in 4K, or 25 videos of 5s — mix them however you like.' data-es='Como referencia: el paquete Plus (150 lumos) rinde 75 imágenes en 2K, o unas 37 en 4K, o 25 videos de 5s — combínalos como quieras.'>Para ter uma referência: o pacote Plus (150 lumos) rende 75 imagens em 2K, ou cerca de 37 em 4K, ou 25 vídeos de 5s — dá para misturar como quiser.</p>
     </div>
+
+    <p class="precos__foot reveal" data-en='Monthly subscriptions. Lumos renew on every billing cycle.' data-es='Suscripciones mensuales. Los lumos se renuevan en cada ciclo de facturación.'>Assinaturas mensais. Os lumos são renovados a cada ciclo de cobrança.</p>
   </div>
 </section>
 
@@ -465,7 +508,7 @@
       </div>
       <div class="acc__item">
         <button class="acc__q focusable" aria-expanded="false" data-en='How am I charged for renders?<span class="acc__ic"></span>' data-es='¿Cómo funciona el cobro de los renders?<span class="acc__ic"></span>'>Como funciona a cobrança dos renders?<span class="acc__ic"></span></button>
-        <div class="acc__a"><div class="acc__a-inner" data-en='We only charge the plugin subscription. The rendering itself runs on your own API key, which you set up and manage — so you control exactly how much you spend and never depend on our credits.' data-es='Solo cobramos la suscripción del plugin. El renderizado en sí corre con tu propia clave de API, que tú configuras y gestionas — así controlas exactamente cuánto gastas y nunca dependes de créditos nuestros.'>Nós cobramos apenas a assinatura do plugin. A renderização em si roda na sua própria chave de API, que você configura e gerencia — então você controla exatamente quanto gasta e nunca depende de créditos nossos.</div></div>
+        <div class="acc__a"><div class="acc__a-inner" data-en='Each render uses lumos, the plugin credits: 2 for an image in 2K, 4 in 4K, 6 for a 5s video and 10 for a 10s one. You pick a monthly pack — from Mini with 30 lumos to Mega with 600 — and that is the only charge: there is no extra fee per image. Your lumos renew on every billing cycle, and you can change or cancel your pack whenever you want.' data-es='Cada render consume lumos, los créditos del plugin: 2 por una imagen en 2K, 4 en 4K, 6 por un video de 5s y 10 por uno de 10s. Eliges un paquete mensual — desde el Mini con 30 lumos hasta el Mega con 600 — y ese es el único cobro: no hay tarifa extra por imagen. Tus lumos se renuevan en cada ciclo de facturación y puedes cambiar o cancelar tu paquete cuando quieras.'>Cada render consome lumos, os créditos do plugin: 2 para uma imagem em 2K, 4 em 4K, 6 para um vídeo de 5s e 10 para um de 10s. Você escolhe um pacote mensal — do Mini com 30 lumos ao Mega com 600 — e esse é o único valor cobrado: não existe taxa extra por imagem. Seus lumos são renovados a cada ciclo de cobrança, e você pode trocar ou cancelar o pacote quando quiser.</div></div>
       </div>
     </div>
   </div>
