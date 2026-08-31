@@ -180,38 +180,61 @@
   </div>
 </section>
 
-<!-- ============================ RECURSOS ============================ -->
-<section class="section" id="recursos">
+<!-- ============================ FLUXO (print -> render -> animacao) ============================ -->
+<section class="section fluxo" id="recursos">
   <div class="wrap">
-    <div class="rec__head">
+    <div class="fluxo__head">
       <div>
-        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='Features' data-es='Funciones'>Recursos</p>
-        <h2 class="section-title reveal" data-lines data-en='Rendering stops being a <span class="gword">step</span> and becomes a gesture.' data-es='El render deja de ser una <span class="gword">etapa</span> y se vuelve un gesto.'>O render deixa de ser <span class="gword">etapa</span> e vira gesto.</h2>
+        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='From print to film' data-es='Del print al film'>Do print ao filme</p>
+        <h2 class="section-title reveal" data-lines data-en='A screenshot goes in. A <span class="gword">film</span> comes out.' data-es='Entra una captura. Sale una <span class="gword">película</span>.'>Entra um print. Sai um <span class="gword">filme</span>.</h2>
       </div>
-      <p class="reveal" data-en='It all happens in the viewport you already have open. No exports, no duplicated scenes, no files lost between versions.' data-es='Todo ocurre en la viewport que ya tienes abierta. Sin exportaciones, sin escenas duplicadas, sin archivos perdidos entre versiones.'>Tudo acontece na viewport que você já tem aberta. Nenhuma exportação, nenhuma cena duplicada, nenhum arquivo perdido entre versões.</p>
+      <p class="fluxo__lead reveal" data-en='The same model runs through all three stages without leaving SketchUp — no exporting scenes, no tweaking light fixtures, no writing prompts.' data-es='El mismo modelo recorre las tres etapas sin salir de SketchUp — sin exportar escenas, sin ajustar luminarias, sin escribir prompts.'>O mesmo modelo atravessa as três etapas sem sair do SketchUp — nada de exportar cena, ajustar luminária ou escrever prompt.</p>
     </div>
-    <div class="rec__grid">
-      <article class="card card--feat reveal tilt" tabindex="0">
-        <svg class="card__ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14"/><path d="M3 9h18M8 4v5"/><circle cx="16" cy="13.5" r="2"/></svg>
-        <h3 data-en='Render without leaving SketchUp' data-es='Renderiza sin salir de SketchUp'>Renderiza sem sair do SketchUp</h3>
-        <p data-en='The plugin reads the active viewport. The camera you framed is the render camera — no exporting anything.' data-es='El plugin lee la viewport activa. La cámara que encuadraste es la cámara del render — sin exportar nada.'>O plugin lê a viewport ativa. A câmera que você enquadrou é a câmera do render — sem exportar nada.</p>
-      </article>
-      <article class="card card--tall reveal tilt" tabindex="0">
-        <svg class="card__ic" viewBox="0 0 24 24"><path d="M4 20l4-9 3 5 3-7 6 11z"/><circle cx="8" cy="6" r="2"/></svg>
-        <h3 data-en='Styles beyond photorealism' data-es='Estilos más allá del fotorrealismo'>Estilos além do fotorrealismo</h3>
-        <p data-en='Sketch, watercolor, physical model and humanized plan — the same model, another language.' data-es='Boceto, acuarela, maqueta física y plano humanizado — el mismo modelo, otro lenguaje.'>Croqui, aquarela, maquete física e planta humanizada — o mesmo modelo, outra linguagem.</p>
-      </article>
-      <article class="card card--wide reveal tilt" tabindex="0">
-        <svg class="card__ic" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4v10l-8 4-8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg>
-        <h3 data-en='Your materials respected' data-es='Tus materiales respetados'>Seus materiais respeitados</h3>
-        <p data-en='The textures applied to the model guide the result instead of being discarded.' data-es='Las texturas aplicadas al modelo guían el resultado en vez de ser descartadas.'>As texturas aplicadas no modelo guiam o resultado em vez de serem descartadas.</p>
-      </article>
-      <article class="card card--wide reveal tilt" tabindex="0">
-        <svg class="card__ic" viewBox="0 0 24 24"><path d="M4 15a4 4 0 0 1 1-7.5A5 5 0 0 1 19 8a3.5 3.5 0 0 1 0 7"/><path d="M12 12v7M9 16l3 3 3-3"/></svg>
-        <h3 data-en='Runs on your everyday machine' data-es='Funciona en tu máquina de siempre'>Roda na sua máquina de sempre</h3>
-        <p data-en='Processing runs in the cloud. A student laptop delivers the same render as a workstation.' data-es='El procesamiento es en la nube. Un portátil de estudiante entrega el mismo render que una workstation.'>O processamento é na nuvem. Notebook de estudante entrega o mesmo render que a workstation.</p>
-      </article>
-    </div>
+
+    <ol class="fluxo__grid">
+      <li class="fluxo__step reveal">
+        <article class="fluxo__card tilt" tabindex="0">
+          <div class="fluxo__media">
+            <img src="img/fluxo-print.webp" width="1600" height="764" loading="lazy" decoding="async" alt="Print da viewport do SketchUp: sala de jantar com adega, ainda sem tratamento de luz">
+            <span class="fluxo__tag"><i>01</i><b data-en='SketchUp screenshot' data-es='Captura de SketchUp'>Print do SketchUp</b></span>
+          </div>
+          <div class="fluxo__body">
+            <h3 data-en='The viewport, exactly as it is' data-es='La viewport tal como está'>A viewport como ela é</h3>
+            <p data-en='You grab a screenshot of the window you already have open. Geometry, proportions and materials go in exactly as you modeled them.' data-es='Tomas una captura de la ventana que ya tienes abierta. Geometría, proporciones y materiales entran tal como los modelaste.'>Você tira o print da janela que já está aberta. Geometria, proporção e materiais entram do jeito que você modelou.</p>
+          </div>
+        </article>
+      </li>
+
+      <li class="fluxo__step reveal">
+        <article class="fluxo__card tilt" tabindex="0">
+          <div class="fluxo__media">
+            <img src="img/fluxo-render.webp" width="1600" height="678" loading="lazy" decoding="async" alt="A mesma sala de jantar renderizada pelo Lumo, com luz, textura e profundidade">
+            <span class="fluxo__tag"><i>02</i><b data-en='Photorealistic render' data-es='Render fotorrealista'>Render fotorrealista</b></span>
+          </div>
+          <div class="fluxo__body">
+            <h3 data-en='The same scene, with real light' data-es='La misma escena, con luz real'>A mesma cena, com luz de verdade</h3>
+            <p data-en='Seconds later the scene comes back with light, texture and depth — no V-Ray, no all-nighter with the machine running.' data-es='Segundos después la escena vuelve con luz, textura y profundidad — sin V-Ray, sin una noche con la máquina encendida.'>Segundos depois a cena volta com luz, textura e profundidade — sem V-Ray, sem noite de máquina ligada.</p>
+          </div>
+        </article>
+      </li>
+
+      <li class="fluxo__step reveal">
+        <article class="fluxo__card tilt" tabindex="0">
+          <div class="fluxo__media">
+            <video class="fluxo__video" width="1280" height="542" muted loop playsinline preload="none" poster="img/fluxo-animacao-poster.webp" aria-label="Animação da sala de jantar gerada pelo Lumo, com a câmera percorrendo o ambiente">
+              <source src="img/fluxo-animacao.mp4" type="video/mp4">
+            </video>
+            <span class="fluxo__tag"><i>03</i><b data-en='Video animation' data-es='Animación en video'>Animação em vídeo</b></span>
+          </div>
+          <div class="fluxo__body">
+            <h3 data-en='The project in motion' data-es='El proyecto en movimiento'>O projeto em movimento</h3>
+            <p data-en='The same image becomes a video with a moving camera, ready to send straight to the client.' data-es='La misma imagen se convierte en un video con cámara en movimiento, listo para enviar al cliente.'>A mesma imagem vira um vídeo com câmera em movimento, pronto para mandar direto para o cliente.</p>
+          </div>
+        </article>
+      </li>
+    </ol>
+
+    <p class="fluxo__foot reveal" data-en='One project, three outputs — and not a single line of prompt along the way.' data-es='Un solo proyecto, tres salidas — y ni una línea de prompt en el camino.'>Um projeto só, três saídas — e nenhuma linha de prompt no caminho.</p>
   </div>
 </section>
 

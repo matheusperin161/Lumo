@@ -142,7 +142,7 @@
 
   /* ---------- PRELOADER ---------- */
   let SITE_STARTED=false;
-  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initSteps(); initEstilos(); initCompare(); maybeShowCookieBar(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
+  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initSteps(); initEstilos(); initFluxo(); initCompare(); maybeShowCookieBar(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
   const plN=document.querySelector('.pl-n');
   function hidePreloader(){ const p=document.querySelector('.preloader'),c=document.querySelector('.curtain'); if(p)p.style.display='none'; if(c)c.style.display='none'; }
   if(RM){
@@ -170,7 +170,7 @@
       gsap.to(el,{opacity:1,y:0,duration:.8,ease:EASE,scrollTrigger:{trigger:el,start:"top 86%"}});
     });
     // stagger groups
-    [['.rec__grid','.card'],['.estilos__grid','.preset']].forEach(([p,c])=>{
+    [['.fluxo__grid','.fluxo__step'],['.estilos__grid','.preset']].forEach(([p,c])=>{
       const parent=document.querySelector(p); if(!parent) return;
       gsap.to(parent.querySelectorAll(c),{opacity:1,y:0,duration:.8,ease:EASE,stagger:.07,scrollTrigger:{trigger:parent,start:"top 82%"}});
     });
@@ -251,6 +251,19 @@
       trigger:'#stepsPin', start:"top top", end:"+=280%", pin:true, scrub:.4,
       onUpdate:s=>{ const i=Math.min(3,Math.floor(s.progress*4)); setActive(i); }
     });
+  }
+
+  /* ---------- FLUXO (video da 3a etapa) ---------- */
+  function initFluxo(){
+    const v=document.querySelector('.fluxo__video'); if(!v) return;
+    if(RM) return; // com reduced motion o poster basta
+    const io=new IntersectionObserver(es=>{
+      es.forEach(e=>{
+        if(e.isIntersecting){ v.play().catch(()=>{}); }
+        else if(!v.paused){ v.pause(); }
+      });
+    },{threshold:.25});
+    io.observe(v);
   }
 
   /* ---------- ESTILOS (nothing extra, reveal handled) ---------- */

@@ -834,6 +834,192 @@ body.menu-open {
 }
 
 /* ============================================================
+   FLUXO (print -> render -> animacao)
+============================================================ */
+.fluxo__head {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.fluxo__lead {
+  color: var(--tinta-fraca);
+  font-size: 17px;
+  max-width: 46ch;
+}
+.fluxo__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.fluxo__step {
+  position: relative;
+  display: flex;
+}
+/* conector: fio em gradiente + chevron, ocupando o vao do grid */
+.fluxo__step:not(:last-child)::before,
+.fluxo__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  pointer-events: none;
+}
+.fluxo__step:not(:last-child)::before {
+  right: -30px;
+  width: 30px;
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(123, 108, 255, 0), var(--violeta) 55%, var(--magenta));
+}
+.fluxo__step:not(:last-child)::after {
+  right: -15px;
+  width: 10px;
+  height: 10px;
+  border-top: 1.5px solid var(--magenta);
+  border-right: 1.5px solid var(--magenta);
+  transform: translateY(-50%) rotate(45deg);
+  filter: drop-shadow(0 0 6px rgba(255, 110, 199, 0.45));
+}
+.fluxo__card {
+  position: relative;
+  width: 100%;
+  background: var(--carvao-alto);
+  border: 1px solid var(--aresta);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.4s var(--ease);
+}
+/* mesma borda reativa dos cards antigos */
+.fluxo__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: 1px;
+  pointer-events: none;
+  background: radial-gradient(
+    180px circle at var(--mx, 50%) var(--my, 50%),
+    var(--violeta),
+    var(--magenta) 30%,
+    transparent 65%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+.fluxo__card:hover::before {
+  opacity: 1;
+}
+.fluxo__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0a0d12;
+  border-bottom: 1px solid var(--aresta);
+}
+.fluxo__media img,
+.fluxo__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.9s var(--ease);
+}
+.fluxo__card:hover .fluxo__media img,
+.fluxo__card:hover .fluxo__media video {
+  transform: scale(1.045);
+}
+.fluxo__tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 13px 6px 6px;
+  background: rgba(13, 17, 23, 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--aresta-forte);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.fluxo__tag i {
+  font-style: normal;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  background: var(--grad);
+  color: #0d1117;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.fluxo__body {
+  padding: 24px 26px 28px;
+}
+.fluxo__body h3 {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.fluxo__body p {
+  color: var(--tinta-fraca);
+  font-size: 14.5px;
+  margin-top: 11px;
+}
+.fluxo__foot {
+  margin-top: 36px;
+  text-align: center;
+  color: var(--tinta-fraca);
+  font-size: 14.5px;
+}
+@media (max-width: 900px) {
+  .fluxo__head {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .fluxo__grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  /* no empilhado o conector desce e aponta para baixo */
+  .fluxo__step:not(:last-child)::before {
+    right: auto;
+    left: 50%;
+    top: 100%;
+    width: 1px;
+    height: 30px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, rgba(123, 108, 255, 0), var(--violeta), var(--magenta));
+  }
+  .fluxo__step:not(:last-child)::after {
+    right: auto;
+    left: 50%;
+    top: calc(100% + 20px);
+    transform: translateX(-50%) rotate(135deg);
+  }
+}
+
+/* ============================================================
    COMO FUNCIONA (sticky pin)
 ============================================================ */
 .steps {
