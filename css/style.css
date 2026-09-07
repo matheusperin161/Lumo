@@ -1464,7 +1464,257 @@ html[lang="es"] .plan__price--usd {
   z-index: 1;
 }
 
-/* ---------- Pacotes de lumos (assinatura mensal) ---------- */
+/* ---------- Oferta: licenca anual + creditos ---------- */
+.oferta {
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+.oferta__card {
+  display: flex;
+  flex-direction: column;
+  padding: 38px 34px 34px;
+  border: 1px solid var(--aresta);
+  border-radius: 14px;
+  background: var(--carvao-alto);
+  transition: border-color 0.45s var(--ease);
+}
+.oferta__card:hover {
+  border-color: var(--aresta-forte);
+}
+.oferta__card--lic {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--carvao-alto), var(--carvao-alto)) padding-box,
+    var(--grad) border-box;
+}
+.oferta__tag {
+  align-self: flex-start;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--tinta-fraca);
+  border: 1px solid var(--aresta);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.oferta__name {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 20px;
+}
+.oferta__price {
+  display: flex;
+  align-items: baseline;
+  font-size: clamp(2.6rem, 4.4vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 14px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+.oferta__price .cur {
+  font-size: 0.4em;
+  font-weight: 500;
+  margin-right: 5px;
+  color: var(--tinta-fraca);
+}
+.oferta__price .per {
+  font-size: 0.28em;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--tinta-fraca);
+  margin-left: 8px;
+}
+.oferta__from {
+  margin: 16px 0 0;
+  font-size: 15px;
+  color: var(--tinta-fraca);
+}
+.oferta__from b {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--tinta);
+  margin-left: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.oferta__sub {
+  color: var(--tinta-fraca);
+  font-size: 14.5px;
+  margin-top: 14px;
+  max-width: 42ch;
+}
+.oferta__incl {
+  list-style: none;
+  margin: 26px 0 30px;
+  display: grid;
+  gap: 12px;
+  font-size: 14.5px;
+  color: var(--tinta-fraca);
+}
+.oferta__incl li {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+}
+.oferta__incl svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  stroke: var(--violeta);
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.oferta__packs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 30px;
+}
+.oferta__packs li {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--tinta-fraca);
+  border: 1px solid var(--aresta);
+  border-radius: 999px;
+  padding: 7px 13px;
+}
+.oferta__packs b {
+  color: var(--tinta);
+  font-weight: 600;
+  margin-left: 3px;
+}
+.oferta__card .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* ---------- Modal de creditos ---------- */
+.credm {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--tinta);
+  max-width: min(1120px, calc(100vw - 32px));
+  width: 100%;
+  max-height: calc(100vh - 48px);
+  height: fit-content;
+  overflow: visible;
+}
+.credm__box:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+.credm::backdrop {
+  background: rgba(6, 8, 12, 0.78);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.credm__box {
+  position: relative;
+  background: var(--carvao);
+  border: 1px solid var(--aresta-forte);
+  border-radius: 18px;
+  padding: 46px 44px 38px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+.credm__box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 18px 18px 0 0;
+  background: var(--grad);
+}
+.credm__x {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--aresta);
+  border-radius: 10px;
+  color: var(--tinta-fraca);
+  transition:
+    color 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+.credm__x:hover {
+  color: var(--tinta);
+  border-color: var(--aresta-forte);
+}
+.credm__x svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+.credm__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--tinta-fraca);
+}
+.credm__title {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-top: 12px;
+}
+.credm__lead {
+  color: var(--tinta-fraca);
+  font-size: 15px;
+  margin-top: 12px;
+  max-width: 62ch;
+}
+.credm .plans--tokens {
+  margin-top: 30px;
+  padding-top: 0;
+}
+.credm__foot {
+  margin-top: 22px;
+  font-size: 12px;
+  color: var(--tinta-fraca);
+}
+body.credm-open {
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  .oferta {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .oferta__card {
+    padding: 30px 24px 26px;
+  }
+  .credm__box {
+    padding: 40px 22px 30px;
+    border-radius: 14px;
+  }
+}
+
+/* ---------- Pacotes de lumos ---------- */
 .plans--tokens {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));

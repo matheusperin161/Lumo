@@ -142,7 +142,7 @@
 
   /* ---------- PRELOADER ---------- */
   let SITE_STARTED=false;
-  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initSteps(); initEstilos(); initFluxo(); initCompare(); maybeShowCookieBar(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
+  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initSteps(); initEstilos(); initFluxo(); initCreditos(); initCompare(); maybeShowCookieBar(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
   const plN=document.querySelector('.pl-n');
   function hidePreloader(){ const p=document.querySelector('.preloader'),c=document.querySelector('.curtain'); if(p)p.style.display='none'; if(c)c.style.display='none'; }
   if(RM){
@@ -268,6 +268,25 @@
 
   /* ---------- ESTILOS (nothing extra, reveal handled) ---------- */
   function initEstilos(){}
+
+  /* ---------- MODAL DE CRÉDITOS ---------- */
+  function initCreditos(){
+    const dlg=document.getElementById('credModal'); if(!dlg) return;
+    const abrir=()=>{
+      if(typeof dlg.showModal==='function') dlg.showModal(); else dlg.setAttribute('open','');
+      document.body.classList.add('credm-open');
+    };
+    const fechar=()=>{
+      if(typeof dlg.close==='function') dlg.close(); else dlg.removeAttribute('open');
+      document.body.classList.remove('credm-open');
+    };
+    document.querySelectorAll('[data-credits-open]').forEach(b=>b.addEventListener('click',abrir));
+    dlg.querySelectorAll('[data-credits-close]').forEach(b=>b.addEventListener('click',fechar));
+    // clique fora da caixa fecha
+    dlg.addEventListener('click',e=>{ if(e.target===dlg) fechar(); });
+    // ESC ja e tratado pelo <dialog>; so precisamos soltar o scroll
+    dlg.addEventListener('close',()=>document.body.classList.remove('credm-open'));
+  }
 
   /* ---------- COMPARADOR (antes/depois arrastável) ---------- */
   function initCompare(){
