@@ -1717,8 +1717,8 @@ body.credm-open {
 /* ---------- Pacotes de lumos ---------- */
 .plans--tokens {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px 14px;
   border: 0;
   padding-top: 14px;
   align-items: stretch;
@@ -1759,6 +1759,22 @@ body.credm-open {
   background: var(--grad);
   padding: 5px 12px;
   border-radius: 999px;
+}
+.tplan__badge--alt {
+  color: var(--tinta);
+  background: var(--carvao);
+  border: 1px solid var(--aresta-forte);
+}
+.tplan__imgs {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--tinta-fraca);
+}
+.tplan__imgs b {
+  color: var(--tinta);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 .tplan__name {
   font-size: 13px;
@@ -1817,6 +1833,7 @@ body.credm-open {
 }
 .tplan__note {
   margin-top: 12px;
+  margin-bottom: 24px;
   min-height: 24px;
   font-size: 12px;
   line-height: 1.5;
@@ -1836,7 +1853,7 @@ body.credm-open {
 .tplan .btn {
   width: 100%;
   justify-content: center;
-  margin-top: 24px;
+  margin-top: auto;
 }
 
 /* ---------- Quanto custa cada render (consumo de lumos) ---------- */
@@ -1962,6 +1979,11 @@ body.credm-open {
 @media (max-width: 1100px) {
   .plans--tokens {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .plans--tokens {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (max-width: 760px) {
@@ -2218,7 +2240,7 @@ body.credm-open {
   .moods {
     padding: 22px 18px 24px;
   }
-  .plans {
+  .plans:not(.plans--tokens) {
     grid-template-columns: 1fr;
   }
   .plan {
