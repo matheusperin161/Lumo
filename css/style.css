@@ -2778,3 +2778,10 @@ body.credm-open {
     height: 28px;
   }
 }
+
+/* Botao de compra sem oferta cadastrada na Hotmart */
+.btn[data-buy][aria-disabled="true"] {
+  opacity: .45;
+  cursor: not-allowed;
+  filter: saturate(.4);
+}

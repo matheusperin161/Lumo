@@ -6,6 +6,33 @@
   gsap.registerPlugin(ScrollTrigger);
   const EASE = "power3.out";
 
+  /* ================================================================
+     CHECKOUT HOTMART -- links de compra dos botoes [data-buy]
+       pt   = oferta em BRL (site em portugues)
+       intl = oferta em USD (site em ingles/espanhol)
+     ATENCAO: por enquanto os dois apontam para as mesmas ofertas em
+     BRL. Quando as ofertas em dolar existirem na Hotmart, troque
+     apenas os valores de intl.
+     Uma string vazia desativa o botao, em vez de levar o visitante
+     para uma pagina quebrada.
+     ================================================================ */
+  const CHECKOUT = {
+    /* Licenca anual do plugin -- produto proprio, sem oferta */
+    licenca:  { pt:'https://pay.hotmart.com/Q107377624M', intl:'https://pay.hotmart.com/Q107377624M' },
+
+    /* Pacotes de lumos -- produto U107565068H, uma oferta (off=) por pacote.
+       Cada off= foi conferido contra o preco no checkout da Hotmart. */
+    start:    { pt:'https://pay.hotmart.com/U107565068H?off=ujwax1u0', intl:'https://pay.hotmart.com/U107565068H?off=ujwax1u0' },  // 30  lumos -- R$ 22,90
+    basic:    { pt:'https://pay.hotmart.com/U107565068H?off=0l5pdyas', intl:'https://pay.hotmart.com/U107565068H?off=0l5pdyas' },  // 60  lumos -- R$ 39,90
+    plus:     { pt:'https://pay.hotmart.com/U107565068H?off=1kone6x3', intl:'https://pay.hotmart.com/U107565068H?off=1kone6x3' },  // 90  lumos -- R$ 57,90
+    advanced: { pt:'https://pay.hotmart.com/U107565068H?off=nbftitp1', intl:'https://pay.hotmart.com/U107565068H?off=nbftitp1' },  // 120 lumos -- R$ 74,90
+    pro:      { pt:'https://pay.hotmart.com/U107565068H?off=vmxsh24x', intl:'https://pay.hotmart.com/U107565068H?off=vmxsh24x' },  // 150 lumos -- R$ 92,90
+    expert:   { pt:'https://pay.hotmart.com/U107565068H?off=gc8abxzk', intl:'https://pay.hotmart.com/U107565068H?off=gc8abxzk' },  // 200 lumos -- R$ 124,90
+    studio:   { pt:'https://pay.hotmart.com/U107565068H?off=s68iqdkn', intl:'https://pay.hotmart.com/U107565068H?off=s68iqdkn' },  // 300 lumos -- R$ 179,90
+    agency:   { pt:'https://pay.hotmart.com/U107565068H?off=irmxjpvs', intl:'https://pay.hotmart.com/U107565068H?off=irmxjpvs' }   // 500 lumos -- R$ 294,90
+  };
+
+
   /* ---------- i18n + THEME: estado e dicionário ---------- */
   const LANG_KEY='lumo-lang', THEME_KEY='lumo-theme', COOKIE_KEY='lumo-cookies';
   const LANGS = ['pt','en','es'];
@@ -48,6 +75,7 @@
     if(src && slot) slot.innerHTML = src.innerHTML;
     if(heroAnimated){ document.querySelectorAll('#hero-h1 .word-mask>span').forEach(s=>{s.style.transform='none';}); }
     store(LANG_KEY, lang);
+    applyCheckout();
   }
 
   /* ---------- TEMA: aplicar claro/escuro ---------- */
@@ -142,7 +170,7 @@
 
   /* ---------- PRELOADER ---------- */
   let SITE_STARTED=false;
-  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initSteps(); initEstilos(); initFluxo(); initCreditos(); initCompare(); maybeShowCookieBar(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
+  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initSteps(); initEstilos(); initFluxo(); initCheckout(); initCreditos(); initCompare(); maybeShowCookieBar(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
   const plN=document.querySelector('.pl-n');
   function hidePreloader(){ const p=document.querySelector('.preloader'),c=document.querySelector('.curtain'); if(p)p.style.display='none'; if(c)c.style.display='none'; }
   if(RM){
@@ -270,6 +298,32 @@
   function initEstilos(){}
 
   /* ---------- MODAL DE CRÉDITOS ---------- */
+  /* ---------- CHECKOUT: aponta os botoes de compra para a Hotmart ---------- */
+  function applyCheckout(){
+    const moeda = (LANG==='pt') ? 'pt' : 'intl';
+    document.querySelectorAll('[data-buy]').forEach(a=>{
+      const oferta = CHECKOUT[a.dataset.buy];
+      const url = oferta && oferta[moeda];
+      if(url){
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.removeAttribute('aria-disabled');
+      }else{
+        a.href = '#';
+        a.removeAttribute('target');
+        a.setAttribute('aria-disabled','true');
+      }
+    });
+  }
+  function initCheckout(){
+    /* sem link cadastrado o clique nao faz nada */
+    document.addEventListener('click',e=>{
+      const a = e.target.closest && e.target.closest('[data-buy][aria-disabled="true"]');
+      if(a) e.preventDefault();
+    });
+  }
+
   function initCreditos(){
     const dlg=document.getElementById('credModal'); if(!dlg) return;
     const abrir=()=>{
