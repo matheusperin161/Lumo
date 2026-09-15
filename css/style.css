@@ -715,28 +715,64 @@ body.menu-open {
 }
 
 /* ============================================================
-   PROBLEMA
+   PITCH
 ============================================================ */
-.problema .wrap {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: 60px;
-  align-items: start;
+.pitch .wrap {
+  text-align: center;
 }
-.problema h2 {
-  font-size: clamp(2.2rem, 5vw, 4.6rem);
+.pitch__h {
+  margin: 36px auto 0;
+  font-size: clamp(2.1rem, 6vw, 4.8rem);
   line-height: 1;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.042em;
   font-weight: 600;
+  text-wrap: balance;
 }
-.problema p {
+.pitch__h .ln {
+  display: block;
+}
+/* a ultima linha esmaece: o peso cai e o SketchUp fica como assinatura */
+.pitch__h .ln--mut {
   color: var(--tinta-fraca);
-  font-size: 18px;
-  max-width: 46ch;
+  font-weight: 500;
 }
-.problema .aside {
-  border-left: 1px solid var(--aresta);
-  padding-left: 32px;
+.pitch__h em {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  letter-spacing: -0.012em;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  padding-bottom: 0.1em;
+}
+.pitch__foot {
+  display: flex;
+  justify-content: center;
+  margin-top: 52px;
+}
+.pitch__lead {
+  position: relative;
+  max-width: 62ch;
+  padding-top: 30px;
+  color: var(--tinta-fraca);
+  font-size: 17.5px;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+/* fio curto em gradiente centralizado, no lugar de uma borda inteira */
+.pitch__lead::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 96px;
+  height: 1px;
+  transform: translateX(-50%);
+  background: var(--grad);
 }
 
 /* ============================================================
@@ -2199,18 +2235,21 @@ body.credm-open {
   .hero__scroll {
     display: none;
   }
-  .problema .wrap,
   .rec__head,
   .faq .wrap,
   .steps__inner {
     grid-template-columns: 1fr;
     gap: 34px;
   }
-  .problema .aside {
-    border-left: 0;
-    border-top: 1px solid var(--aresta);
-    padding-left: 0;
-    padding-top: 26px;
+  .pitch__h {
+    margin-top: 26px;
+  }
+  .pitch__foot {
+    margin-top: 36px;
+  }
+  .pitch__lead {
+    font-size: 16.5px;
+    padding-top: 22px;
   }
   .rec__grid {
     grid-template-columns: 1fr;

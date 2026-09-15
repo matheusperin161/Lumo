@@ -24,7 +24,7 @@
 <script>try{var t=localStorage.getItem('lumo-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('lumo-lang');if(l==='en')document.documentElement.setAttribute('lang','en');else if(l==='es')document.documentElement.setAttribute('lang','es');}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400..600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lumo","url":"https://lumo-ia.com/","image":"https://lumo-ia.com/img/hero-after.webp","applicationCategory":"DesignApplication","operatingSystem":"SketchUp","inLanguage":["pt-BR","en","es"],"description":"Plugin de renderização por IA para o SketchUp. Gera imagens fotorrealistas direto na viewport, sem exportar arquivo.","offers":{"@type":"AggregateOffer","lowPrice":"22.90","highPrice":"300.00","priceCurrency":"BRL","offerCount":9,"url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock","offers":[{"@type":"Offer","name":"Licença anual do plugin","price":"300.00","priceCurrency":"BRL","description":"Licença do plugin Lumo por 12 meses","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Lumo Start","price":"22.90","priceCurrency":"BRL","description":"Pacote avulso de 30 lumos","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Lumo Basic","price":"39.90","priceCurrency":"BRL","description":"Pacote avulso de 60 lumos","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Lumo Plus","price":"57.90","priceCurrency":"BRL","description":"Pacote avulso de 90 lumos","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Lumo Advanced","price":"74.90","priceCurrency":"BRL","description":"Pacote avulso de 120 lumos","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Lumo Pro","price":"92.90","priceCurrency":"BRL","description":"Pacote avulso de 150 lumos","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Lumo Expert","price":"124.90","priceCurrency":"BRL","description":"Pacote avulso de 200 lumos","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Lumo Studio","price":"179.90","priceCurrency":"BRL","description":"Pacote avulso de 300 lumos","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Lumo Agency","price":"294.90","priceCurrency":"BRL","description":"Pacote avulso de 500 lumos","url":"https://lumo-ia.com/#precos","availability":"https://schema.org/InStock"}]}}
 </script>
@@ -167,15 +167,19 @@
   <div class="hero__scroll" aria-hidden="true" data-en='scroll to reveal<span></span>' data-es='desplaza para revelar<span></span>'>role para revelar<span></span></div>
 </section>
 
-<!-- ============================ PROBLEMA ============================ -->
-<section class="section problema">
+<!-- ============================ PITCH (o que o plugin faz) ============================ -->
+<section class="section pitch">
   <div class="wrap">
-    <div>
-      <p class="eyebrow reveal" style="margin-bottom:30px" data-en='The real pain' data-es='El dolor real'>A dor real</p>
-      <h2 class="reveal" data-lines data-en='You modeled in 2 hours. And spent 6 <span class="gword">rendering.</span>' data-es='Modelaste en 2 horas. Y gastaste 6 <span class="gword">renderizando.</span>'>Você modelou em 2 horas. E gastou 6 <span class="gword">renderizando.</span></h2>
-    </div>
-    <div class="aside">
-      <p class="reveal" data-en='Good renders always cost time or money. You learn new software, fight with lighting and materials, leave the machine running all night — or pay someone and wait three days for an image that still comes back for tweaks.' data-es='Un buen render siempre costó tiempo o dinero. Aprendes un software nuevo, peleas con la iluminación y los materiales, dejas la máquina encendida toda la noche — o pagas a alguien y esperas tres días por una imagen que aún volverá para ajustes.'>Render bom sempre custou tempo ou dinheiro. Você aprende um software novo, briga com iluminação e material, deixa a máquina ligada a noite inteira — ou paga alguém e espera três dias por uma imagem que ainda vai voltar para ajuste.</p>
+    <p class="eyebrow reveal" data-en='The plugin' data-es='El plugin'>O plugin</p>
+
+    <h2 class="pitch__h reveal">
+      <span class="ln" data-en='Render, video and style.' data-es='Render, video y estilo.'>Render, vídeo e estilo.</span>
+      <span class="ln" data-en='<em>All in clicks.</em>' data-es='<em>Todo en clics.</em>'><em>Tudo em cliques.</em></span>
+      <span class="ln ln--mut" data-en='Inside SketchUp.' data-es='Dentro de SketchUp.'>Dentro do SketchUp.</span>
+    </h2>
+
+    <div class="pitch__foot">
+      <p class="pitch__lead reveal" data-en='Lumo opens as a panel in your toolbar and reads the active viewport — the camera you framed is the render camera. You pick resolution, mood and time of day, and the scene comes back finished.' data-es='Lumo se abre como un panel en tu barra de herramientas y lee la viewport activa — la cámara que encuadraste es la cámara del render. Eliges resolución, clima y hora del día, y la escena vuelve lista.'>O Lumo abre como um painel na sua barra de ferramentas e lê a viewport ativa — a câmera que você enquadrou é a câmera do render. Você escolhe resolução, clima e hora do dia, e a cena volta pronta.</p>
     </div>
   </div>
 </section>
