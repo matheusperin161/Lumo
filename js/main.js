@@ -170,7 +170,7 @@
 
   /* ---------- PRELOADER ---------- */
   let SITE_STARTED=false;
-  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initSteps(); initEstilos(); initFluxo(); initCheckout(); initCreditos(); initCompare(); maybeShowCookieBar(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
+  function startSite(){ if(SITE_STARTED) return; SITE_STARTED=true; document.body.classList.remove('loading'); try{ initReveals(); initHero(); initDemo(); initEstilos(); initFluxo(); initCheckout(); initCreditos(); initCompare(); maybeShowCookieBar(); }catch(e){ console.error(e); } ScrollTrigger.refresh(); }
   const plN=document.querySelector('.pl-n');
   function hidePreloader(){ const p=document.querySelector('.preloader'),c=document.querySelector('.curtain'); if(p)p.style.display='none'; if(c)c.style.display='none'; }
   if(RM){
@@ -257,28 +257,55 @@
     heroAnimated=true;
   }
 
-  /* ---------- STEPS pin ---------- */
-  function initSteps(){
-    const steps=gsap.utils.toArray('.step');
-    const vis=gsap.utils.toArray('.steps__visual img');
-    const cur=document.querySelector('.steps-cur');
-    const barI=document.getElementById('stepsBar');
-    function setActive(i){
-      steps.forEach((s,k)=>s.classList.toggle('on',k===i));
-      vis.forEach((v,k)=>v.classList.toggle('on',k===i));
-      cur.textContent='0'+(i+1);
-      barI.style.transform='scaleX('+((i+1))+')';
+  /* ---------- DEMO (videos em moldura mac) ---------- */
+  function initDemo(){
+    const tabs=[...document.querySelectorAll('.demo__tab')];
+    const painels=[...document.querySelectorAll('.demo__panel')];
+    if(!tabs.length || tabs.length!==painels.length) return;
+    let atual=0;
+
+    // nada toca sozinho: quem da play e a pessoa, pelos controles do video
+    function ativar(i){
+      atual=i;
+      tabs.forEach((t,k)=>{
+        const on=k===i;
+        t.classList.toggle('is-on',on);
+        t.setAttribute('aria-selected',String(on));
+        t.tabIndex=on?0:-1;
+      });
+      painels.forEach((p,k)=>{
+        const on=k===i;
+        p.hidden=!on;
+        p.classList.toggle('is-on',on);
+        const v=p.querySelector('video');
+        if(v && !on && !v.paused) v.pause();   // some da tela, para de tocar
+      });
     }
-    barI.style.width='25%';barI.style.transformOrigin='left';barI.style.transform='scaleX(1)';
-    if(isMobile){
-      // no pin on mobile — reveal steps, keep matching visual on view
-      steps.forEach((s,i)=>ScrollTrigger.create({trigger:s,start:"top 70%",onEnter:()=>setActive(i),onEnterBack:()=>setActive(i)}));
-      return;
-    }
-    ScrollTrigger.create({
-      trigger:'#stepsPin', start:"top top", end:"+=280%", pin:true, scrub:.4,
-      onUpdate:s=>{ const i=Math.min(3,Math.floor(s.progress*4)); setActive(i); }
+
+    tabs.forEach((t,i)=>{
+      t.addEventListener('click',()=>ativar(i));
+      t.addEventListener('keydown',e=>{
+        const d = e.key==='ArrowRight' ? 1 : e.key==='ArrowLeft' ? -1 : 0;
+        if(!d) return;
+        e.preventDefault();
+        const n=(i+d+tabs.length)%tabs.length;
+        ativar(n); tabs[n].focus();
+      });
     });
+
+    // rolou para longe: pausa o que estava tocando, mas nao retoma sozinho na volta
+    const mac=document.querySelector('.demo .mac');
+    if(mac && 'IntersectionObserver' in window){
+      new IntersectionObserver(es=>{
+        es.forEach(e=>{
+          if(e.isIntersecting) return;
+          const v=painels[atual] && painels[atual].querySelector('video');
+          if(v && !v.paused) v.pause();
+        });
+      },{threshold:.15}).observe(mac);
+    }
+
+    ativar(0);
   }
 
   /* ---------- FLUXO (video da 3a etapa) ---------- */

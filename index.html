@@ -61,8 +61,8 @@
   </a>
   <nav class="nav__links" aria-label="Principal">
     <a href="#recursos" data-en='Features' data-es='Funciones'>Recursos</a>
-    <a href="#como" data-en='How it works' data-es='Cómo funciona'>Como funciona</a>
     <a href="#comparar" data-en='Compare' data-es='Comparar'>Comparar</a>
+    <a href="#como" data-en='How it works' data-es='Cómo funciona'>Como funciona</a>
     <a href="#estilos" data-en='Styles' data-es='Estilos'>Estilos</a>
     <a href="#precos" data-en='Pricing' data-es='Precios'>Preços</a>
     <a href="#faq" data-en='FAQ' data-es='FAQ'>FAQ</a>
@@ -105,8 +105,8 @@
 <!-- ============================ MENU MOBILE ============================ -->
 <nav class="nav__mobile" id="navMobile" aria-label="Menu mobile" aria-hidden="true">
   <a href="#recursos" data-en='Features' data-es='Funciones'>Recursos</a>
-  <a href="#como" data-en='How it works' data-es='Cómo funciona'>Como funciona</a>
   <a href="#comparar" data-en='Compare' data-es='Comparar'>Comparar</a>
+  <a href="#como" data-en='How it works' data-es='Cómo funciona'>Como funciona</a>
   <a href="#estilos" data-en='Styles' data-es='Estilos'>Estilos</a>
   <a href="#precos" data-en='Pricing' data-es='Precios'>Preços</a>
   <a href="#faq" data-en='FAQ' data-es='FAQ'>FAQ</a>
@@ -242,36 +242,6 @@
   </div>
 </section>
 
-<!-- ============================ COMO FUNCIONA (pin) ============================ -->
-<section id="como" class="steps">
-  <div class="wrap" style="padding-top:110px">
-    <p class="eyebrow reveal" style="margin-bottom:26px" data-en='How it works' data-es='Cómo funciona'>Como funciona</p>
-    <h2 class="section-title reveal" data-lines style="max-width:16ch" data-en='Four steps between the <span class="gword">model</span> and the delivery folder.' data-es='Cuatro pasos entre el <span class="gword">modelo</span> y la carpeta de entrega.'>Quatro passos entre o <span class="gword">modelo</span> e a pasta de entrega.</h2>
-  </div>
-  <div class="steps__sticky" id="stepsPin">
-    <div class="wrap steps__inner">
-      <div>
-        <div class="steps__list">
-          <div class="step on" data-step="0"><div class="step__n">01</div><h3 data-en='Install the plugin' data-es='Instala el plugin'>Instale o plugin</h3><p data-en='A .rbz file through the Extension Manager. One minute and Lumo shows up in your toolbar.' data-es='Archivo .rbz por el Extension Manager. Un minuto y Lumo aparece en tu barra.'>Arquivo .rbz pelo Extension Manager. Um minuto e o Lumo aparece na sua barra.</p></div>
-          <div class="step" data-step="1"><div class="step__n">02</div><h3 data-en='Frame the scene' data-es='Encuadra la escena'>Enquadre a cena</h3><p data-en='Position the camera as you already do. The active view is the render view.' data-es='Coloca la cámara como ya lo haces. La vista activa es la vista del render.'>Posicione a câmera como você já faz. A vista ativa é a vista do render.</p></div>
-          <div class="step" data-step="2"><div class="step__n">03</div><h3 data-en='Choose the style' data-es='Elige el estilo'>Escolha o estilo</h3><p data-en='Mood, time of day and resolution in the side panel. No managing light fixtures.' data-es='Clima, hora del día y resolución en el panel lateral. Sin gestionar luminarias.'>Clima, hora do dia e resolução no painel lateral. Sem gerenciar luminárias.</p></div>
-          <div class="step" data-step="3"><div class="step__n">04</div><h3 data-en='Generate the render' data-es='Genera el render'>Gere o render</h3><p data-en='The image appears on screen and goes straight to your folder. Ready for the client.' data-es='La imagen aparece en pantalla y va directo a tu carpeta. Lista para el cliente.'>A imagem aparece na tela e vai direto para a sua pasta. Pronta para o cliente.</p></div>
-        </div>
-      </div>
-      <div class="steps__sticky-r">
-        <div class="steps__visual">
-          <img class="on" data-vis="0" src="img/shot-panel.webp" alt="Painel do plugin Lumo no SketchUp">
-          <img data-vis="1" src="img/sketchup.webp" alt="Cena enquadrada no SketchUp">
-          <img data-vis="2" src="img/shot-editar.webp" alt="Escolha de estilo no painel do Lumo">
-          <img data-vis="3" src="img/hero-after.webp" alt="Render final gerado pelo Lumo">
-          <div class="steps__counter"><b class="steps-cur">01</b> <i>/ 04</i></div>
-          <div class="steps__bar"><i id="stepsBar"></i></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============================ COMPARADOR (antes/depois) ============================ -->
 <section class="section compare" id="comparar">
   <div class="wrap">
@@ -369,6 +339,64 @@
           </button>
         </div>
       </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COMO FUNCIONA (videos em moldura mac) ============================ -->
+<section class="section demo" id="como">
+  <div class="wrap">
+    <div class="demo__head">
+      <div>
+        <p class="eyebrow reveal" style="margin-bottom:26px" data-en='How it works' data-es='Cómo funciona'>Como funciona</p>
+        <h2 class="section-title reveal" data-lines data-en='See the plugin <span class="gword">running.</span>' data-es='Mira el plugin <span class="gword">funcionando.</span>'>Veja o plugin <span class="gword">rodando.</span></h2>
+      </div>
+      <p class="demo__lead reveal" data-en='Each video shows one part of the plugin in use, recorded straight off the screen. Pick where you want to start.' data-es='Cada video muestra una parte del plugin en uso, grabado directo de la pantalla. Elige por dónde quieres empezar.'>Cada vídeo mostra uma parte do plugin em uso, gravada direto da tela. Escolha por onde você quer começar.</p>
+    </div>
+
+    <!-- Um botao por video. Para adicionar ou remover, mexa aqui e no painelxsxs
+         correspondente la embaixo, mantendo o par id/aria-controls. -->
+    <div class="demo__tabs reveal" role="tablist" aria-label="Vídeos do plugin">
+      <button type="button" class="demo__tab is-on focusable" role="tab" id="demoT1" aria-controls="demoP1" aria-selected="true" data-en='Viewport rendering' data-es='Renderizado de la viewport'>Renderização da Viewport</button>
+      <button type="button" class="demo__tab focusable" role="tab" id="demoT2" aria-controls="demoP2" aria-selected="false" tabindex="-1" data-en='First render' data-es='Primer render'>Primeiro render</button>
+      <button type="button" class="demo__tab focusable" role="tab" id="demoT3" aria-controls="demoP3" aria-selected="false" tabindex="-1" data-en='Styles and mood' data-es='Estilos y clima'>Estilos e clima</button>
+      <button type="button" class="demo__tab focusable" role="tab" id="demoT4" aria-controls="demoP4" aria-selected="false" tabindex="-1" data-en='Scene video' data-es='Video de la escena'>Vídeo da cena</button>
+    </div>
+
+    <div class="mac reveal">
+      <div class="mac__bar">
+        <span class="mac__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="mac__title">Lumo — SketchUp</span>
+      </div>
+      <div class="mac__screen">
+        <!-- Quando o video chegar, troque a div.demo__soon de dentro do painel por:
+             <video class="demo__video" src="img/demo-XXX.mp4" poster="img/demo-XXX.webp"
+                    muted loop playsinline preload="none"></video>
+             O JS ja cuida de dar play no painel ativo e pausar os outros. -->
+        <div class="demo__panel is-on" role="tabpanel" id="demoP1" aria-labelledby="demoT1" tabindex="0">
+          <video class="demo__video" width="1918" height="1016" controls playsinline preload="none" poster="img/demo-viewport.webp" aria-label="Gravação de tela: o Lumo lendo a viewport do SketchUp, os ajustes no painel e o render gerado">
+            <source src="img/demo-viewport.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="demo__panel" role="tabpanel" id="demoP2" aria-labelledby="demoT2" tabindex="0" hidden>
+          <div class="demo__soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10.2 8.6l5.2 3.4-5.2 3.4z"/></svg>
+            <span data-en='Video coming soon' data-es='Video próximamente'>Vídeo em breve</span>
+          </div>
+        </div>
+        <div class="demo__panel" role="tabpanel" id="demoP3" aria-labelledby="demoT3" tabindex="0" hidden>
+          <div class="demo__soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10.2 8.6l5.2 3.4-5.2 3.4z"/></svg>
+            <span data-en='Video coming soon' data-es='Video próximamente'>Vídeo em breve</span>
+          </div>
+        </div>
+        <div class="demo__panel" role="tabpanel" id="demoP4" aria-labelledby="demoT4" tabindex="0" hidden>
+          <div class="demo__soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10.2 8.6l5.2 3.4-5.2 3.4z"/></svg>
+            <span data-en='Video coming soon' data-es='Video próximamente'>Vídeo em breve</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
