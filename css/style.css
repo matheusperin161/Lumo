@@ -193,12 +193,20 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 34px;
+  perspective: 700px;
 }
 .preloader__mark {
   width: 88px;
   height: auto;
   filter: drop-shadow(0 0 34px rgba(255, 110, 199, 0.32))
     drop-shadow(0 0 12px rgba(123, 108, 255, 0.28));
+  /* giro no eixo vertical; usa a propriedade `rotate` para nao brigar
+     com o `transform` (scale) que o GSAP anima na entrada */
+  animation: preloader-spin 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+@keyframes preloader-spin {
+  from { rotate: y 0deg; }
+  to { rotate: y 360deg; }
 }
 .preloader__count {
   font-size: 11px;
@@ -2856,4 +2864,148 @@ body.credm-open {
   opacity: .45;
   cursor: not-allowed;
   filter: saturate(.4);
+}
+
+/* ============================================================
+   REFLECT AND LIGHT (segundo plugin)
+============================================================ */
+.reflect {
+  overflow: hidden;
+}
+.reflect__glow {
+  position: absolute;
+  right: -10%;
+  top: 30%;
+  width: 720px;
+  height: 720px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle,
+    rgba(255, 110, 199, 0.12),
+    rgba(45, 180, 255, 0.06) 45%,
+    transparent 70%
+  );
+}
+.reflect .wrap {
+  position: relative;
+  z-index: 1;
+}
+.reflect__new {
+  display: inline-block;
+  background: var(--grad);
+  color: #0d1117;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  margin-right: 8px;
+  letter-spacing: 0.14em;
+}
+.reflect__grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 18px;
+  margin-top: 56px;
+  align-items: stretch;
+}
+.reflect__feats {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.reflect__feat {
+  padding: 30px 28px;
+  border: 1px solid var(--aresta);
+  border-radius: 14px;
+  background: var(--carvao-alto);
+  transition: border-color 0.45s var(--ease);
+}
+.reflect__feat:hover {
+  border-color: var(--aresta-forte);
+}
+.reflect__feat svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: url(#gradstroke);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.reflect__feat h3 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 18px 0 8px;
+}
+.reflect__feat p {
+  font-size: 14.5px;
+  color: var(--tinta-fraca);
+}
+.reflect__brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.reflect__brand img {
+  width: 76px;
+  height: 76px;
+  flex: none;
+  border-radius: 18px;
+  background: #000;
+  box-shadow:
+    0 0 0 1px var(--aresta),
+    0 10px 40px rgba(255, 110, 199, 0.28);
+}
+.reflect__brand .oferta__name {
+  margin-top: 10px;
+  font-size: 20px;
+}
+.reflect__card .oferta__price {
+  margin-top: 26px;
+}
+@media (max-width: 1100px) {
+  .reflect__grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .reflect__feats {
+    grid-template-columns: 1fr;
+  }
+  .reflect__feat {
+    padding: 26px 22px;
+  }
+  .reflect__brand img {
+    width: 62px;
+    height: 62px;
+    border-radius: 14px;
+  }
+}
+/* nav com 7 links: aperta o espaco antes de quebrar linha */
+.nav__links a {
+  white-space: nowrap;
+}
+@media (max-width: 1240px) {
+  .nav__links {
+    gap: 22px;
+  }
+}
+/* pitch: segunda linha apresentando o Reflect and Light */
+.pitch__foot--reflect {
+  margin-top: 18px;
+}
+.pitch__lead--reflect {
+  padding-top: 0;
+}
+.pitch__lead--reflect::before {
+  content: none;
+}
+.pitch__lead--reflect a {
+  color: var(--tinta);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--magenta);
+  text-underline-offset: 4px;
 }

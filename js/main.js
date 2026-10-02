@@ -29,7 +29,10 @@
     pro:      { pt:'https://pay.hotmart.com/U107565068H?off=vmxsh24x', intl:'https://pay.hotmart.com/U107565068H?off=vmxsh24x' },  // 150 lumos -- R$ 92,90
     expert:   { pt:'https://pay.hotmart.com/U107565068H?off=gc8abxzk', intl:'https://pay.hotmart.com/U107565068H?off=gc8abxzk' },  // 200 lumos -- R$ 124,90
     studio:   { pt:'https://pay.hotmart.com/U107565068H?off=s68iqdkn', intl:'https://pay.hotmart.com/U107565068H?off=s68iqdkn' },  // 300 lumos -- R$ 179,90
-    agency:   { pt:'https://pay.hotmart.com/U107565068H?off=irmxjpvs', intl:'https://pay.hotmart.com/U107565068H?off=irmxjpvs' }   // 500 lumos -- R$ 294,90
+    agency:   { pt:'https://pay.hotmart.com/U107565068H?off=irmxjpvs', intl:'https://pay.hotmart.com/U107565068H?off=irmxjpvs' },  // 500 lumos -- R$ 294,90
+
+    /* Lumo Reflect and Light -- produto proprio, pagamento unico */
+    reflect:  { pt:'https://pay.hotmart.com/S107863835J', intl:'https://pay.hotmart.com/S107863835J' }   // R$ 29,90
   };
 
 
